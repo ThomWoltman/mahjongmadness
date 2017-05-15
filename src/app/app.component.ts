@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from './Services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app works!';
+  constructor(private authService: AuthService) {}
+
+  username: string;
+  title = 'Mahjong';
+
+  ngOnInit(){
+    this.authService.username$.subscribe(
+      username => {
+        this.username = username;
+      });
+  }
 }

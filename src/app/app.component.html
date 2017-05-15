@@ -1,3 +1,7 @@
-<h1>
-  {{title}}
-</h1>
+<h1>{{title}}</h1>
+<h2 *ngIf="username">{{username}}</h2>
+
+<a routerLink="/home" routerLinkActive="active">Home</a>
+<a routerLink="/create" routerLinkActive="active">Create Game</a>
+
+<router-outlet></router-outlet>

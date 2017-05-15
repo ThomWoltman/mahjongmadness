@@ -1,0 +1,12 @@
+<h2>Game List</h2>
+<div>
+<ul class="games" [ngBusy]="busy">
+    <li *ngFor="let game of games">
+      {{game.createdBy.name}}
+      {{game.state}}
+      {{game.players.length}}
+      {{game.gameTemplate.id}}
+      <a href="#">join</a>
+  </li>
+</ul>
+<div>

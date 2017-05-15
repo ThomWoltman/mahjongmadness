@@ -1,0 +1,27 @@
+<h2>Create Game</h2>
+
+    <div>
+        <label for="templates">Template</label>
+        <select [(ngModel)]="selectedTemplate" [ngBusy]="busy" name="templates">
+            <option *ngFor="let template of templates" [ngValue]="template">
+                {{template.id}}
+            </option>
+        </select>
+    </div>
+
+    <div>
+        <label for="MinPlayers">Min Players</label>
+        <input type="number" name="MinPlayers" [(ngModel)]="minPlayers">
+        {{minPlayers}}
+        <!--<a [ngModel]="minPlayers"></a>-->
+    </div>
+    <div>
+        <label for="MaxPlayers">Max Players</label>
+        <input type="number" name="MaxPlayers">
+    </div>
+
+    <div *ngIf="selectedTemplate">
+        
+        
+    <button (click)="createGame()">Create Game</button>
+    </div>
