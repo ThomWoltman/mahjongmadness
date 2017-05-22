@@ -6,6 +6,7 @@ export class Game {
     createdBy: User;
     createdOn: string;
     gameTemplate: Template;
+    templateName: string;
     __v: number;
     players: User[];
     maxPlayers: number;

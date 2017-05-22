@@ -1,27 +1,27 @@
-<h2>Create Game</h2>
+<md-card class="example-card" [ngBusy]="busy">
+    <md-card-title>
+        <h2>Create Game</h2>
+    </md-card-title>
 
-    <div>
-        <label for="templates">Template</label>
-        <select [(ngModel)]="selectedTemplate" [ngBusy]="busy" name="templates">
-            <option *ngFor="let template of templates" [ngValue]="template">
-                {{template.id}}
-            </option>
-        </select>
-    </div>
+    <md-select placeholder="Select a Template" [(ngModel)]="selectedTemplate" name="templates">
+        <md-option *ngFor="let template of templates" [value]="template">
+            {{template.id}}
+        </md-option>
+    </md-select>
 
-    <div>
-        <label for="MinPlayers">Min Players</label>
-        <input type="number" name="MinPlayers" [(ngModel)]="minPlayers">
-        {{minPlayers}}
-        <!--<a [ngModel]="minPlayers"></a>-->
-    </div>
-    <div>
-        <label for="MaxPlayers">Max Players</label>
-        <input type="number" name="MaxPlayers">
-    </div>
 
-    <div *ngIf="selectedTemplate">
-        
-        
-    <button (click)="createGame()">Create Game</button>
-    </div>
+    <md-input-container class="example-full-width">
+        <input type="number" name="MinPlayers" [(ngModel)]="minPlayers" mdInput placeholder="Min players">
+    </md-input-container>
+
+    <md-input-container class="example-full-width">
+        <input type="number" name="MaxPlayers" [(ngModel)]="maxPlayers" mdInput placeholder="Max players">
+    </md-input-container>
+
+
+
+    <button md-button (click)="startGame()" class="create">
+        <md-icon>done</md-icon>
+    </button>
+
+</md-card>

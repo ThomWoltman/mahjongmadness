@@ -4,13 +4,15 @@ import { AuthService } from './Services/auth.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService) {
+    this.username = authService.username;
+  }
 
   username: string;
-  title = 'Mahjong';
+  title = 'MahjongMadness';
 
   ngOnInit(){
     this.authService.username$.subscribe(

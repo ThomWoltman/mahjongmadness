@@ -25,6 +25,7 @@ export class TemplateService {
     }
 
     private extractData(res: Response) {
+    console.log(res);
     let body = res.json();
     return body || { };
   }

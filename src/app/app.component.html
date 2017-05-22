@@ -1,7 +1,29 @@
-<h1>{{title}}</h1>
+<!--<h1>{{title}}</h1>
 <h2 *ngIf="username">{{username}}</h2>
 
 <a routerLink="/home" routerLinkActive="active">Home</a>
 <a routerLink="/create" routerLinkActive="active">Create Game</a>
+
+<router-outlet></router-outlet>-->
+
+<md-toolbar color="primary">
+
+    <button md-button routerLink="/home" routerLinkActive="active">
+        <md-icon>home</md-icon>
+        {{title}}
+    </button>
+
+    <button md-button routerLink="/create" routerLinkActive="active">Create Game</button>
+
+    <!-- This fills the remaining space of the current row -->
+    <span class="example-fill-remaining-space"></span>
+
+    <button md-button>
+  <md-icon>account_circle</md-icon>
+  {{username}}
+  </button>
+
+    <button md-button>Logout</button>
+</md-toolbar>
 
 <router-outlet></router-outlet>
