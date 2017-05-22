@@ -8,7 +8,7 @@ import {Subscription} from 'rxjs';
 @Component({
   selector: 'start-game',
   templateUrl: './start-game.component.html',
-  styleUrls: ['./start-game.component.css']
+  styleUrls: ['./start-game.component.scss']
 })
 export class StartGameComponent {
   constructor(private gameService: GameService, private templateService: TemplateService) {}
@@ -27,12 +27,10 @@ export class StartGameComponent {
     this.busy = this.templateService.getTemplates()
       .subscribe(
         templates => this.templates = templates);
-      
-    console.log(this.templates);
   }
 
-  createGame() : void {
-      //this.gameService.addGame({id: 1, status: 1, players:1, template:this.selectedTemplate.id});     
+  startGame() : void {
+      this.gameService.createGame(this.selectedTemplate._id, this.minPlayers, this.maxPlayers).subscribe();     
   }
 
   ngOnInit(): void {

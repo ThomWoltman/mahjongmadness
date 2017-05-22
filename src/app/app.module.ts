@@ -12,12 +12,16 @@ import { StartGameComponent } from './Components/start-game/start-game.component
 import { AuthCallbackComponent } from './Components/auth-callback/auth-callback.component';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MdButtonModule, MdCheckboxModule, MdCardModule, MdListModule, MdToolbarModule, MdIconModule, MdTabsModule, MdInputModule, MdSelectModule} from '@angular/material';
 import {BusyModule} from 'angular2-busy';
+import 'hammerjs';
 
 import { GameService } from './Services/game.service';
 import { TemplateService } from './Services/template.service';
 import { AuthGuard } from './Services/auth-guard.service';
 import { AuthService } from './Services/auth.service';
+
+
 
 const routes: Routes = [
   
@@ -46,15 +50,26 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     BrowserAnimationsModule,
     BusyModule,
+    MdButtonModule, 
+    MdCheckboxModule,
+    MdCardModule,
+    MdListModule,
+    MdToolbarModule,
+    MdIconModule,
+    MdTabsModule,
+    MdInputModule,
+    MdSelectModule,
   ],
   exports: [
     RouterModule,
+    MdButtonModule, 
+    MdCheckboxModule,
   ],
   providers: [
-    GameService,
     TemplateService,
     AuthGuard,
-    AuthService
+    AuthService,
+    GameService,
   ],
   bootstrap: [AppComponent]
 })
