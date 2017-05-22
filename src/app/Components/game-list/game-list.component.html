@@ -10,8 +10,10 @@
 
   <md-tab label="Browse">
     <md-nav-list>
-      <md-list-item *ngFor="let game of games">
-        <a md-line href="#">{{ game.createdBy.name }}</a> {{game.gameTemplate.id}}
+      <md-list-item *ngFor="let game of games" >
+        <a md-line>{{ game.createdBy.name }}</a> 
+        <!--<a>{{game.gameTemplate.id}}</a>-->
+        <button md-raised-button (click)="joinGame(game._id)">Join</button>
       </md-list-item>
     </md-nav-list>
 
