@@ -1,0 +1,16 @@
+<md-card class="example-card" [ngBusy]="busy">
+
+
+    <h2>Template Preview</h2>
+
+
+    <md-card *ngIf="selectedTemplate" class="game-container" style='width: 500px; height: 500px'>
+
+            <tile *ngFor="let tile of selectedTemplate.tiles" [tile]="tile">
+            </tile>
+    </md-card>
+
+
+
+
+</md-card>

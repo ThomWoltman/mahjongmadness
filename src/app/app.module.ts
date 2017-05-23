@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule,Component, Input, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule, JsonpModule } from '@angular/http';
 import { CommonModule } from '@angular/common';
@@ -22,6 +22,8 @@ import { GameService } from './Services/game.service';
 import { TemplateService } from './Services/template.service';
 import { AuthGuard } from './Services/auth-guard.service';
 import { AuthService } from './Services/auth.service';
+import {GameBoardComponent} from "./Components/game-board/game-board.component";
+import { TileComponent } from './Components/tile/tile.component';
 
 
 
@@ -43,6 +45,8 @@ const routes: Routes = [
     AppComponent,
     StartGameComponent,
     AuthCallbackComponent,
+    GameBoardComponent,
+    TileComponent,
     MyGamesComponent,
     WatchGamesComponent,
     BrowseGamesComponent,
@@ -76,6 +80,7 @@ const routes: Routes = [
     AuthGuard,
     AuthService,
     GameService,
+
   ],
   bootstrap: [AppComponent]
 })
