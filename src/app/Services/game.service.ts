@@ -23,7 +23,7 @@ export class GameService {
     // }
 
     getMyGames(): Observable<Game[]> {
-        return this.http.get(`${this.apiUrl}/games/`, { params: { pageSize: 10, createdBy: this.authService.username } })
+        return this.http.get(`${this.apiUrl}/games/`, { params: { pageSize: 10, player: this.authService.username } })
             .map(this.extractData);
     }
 
@@ -52,6 +52,20 @@ export class GameService {
                 minPlayers: minPlayers,
                 maxPlayers: maxPlayers
             }, options)
+            .map(this.extractData);
+    }
+
+    joinGame(gameID: number){
+        let headers = new Headers({
+            'Content-Type': 'application/json',
+            'x-username': this.authService.username,
+            'x-token': this.authService.token,
+        });
+
+        let options = new RequestOptions({ headers: headers });
+
+        return this.http.post(`${this.apiUrl}/games/${gameID}/players`,
+            {}, options)
             .map(this.extractData);
     }
 

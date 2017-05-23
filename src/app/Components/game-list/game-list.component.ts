@@ -36,6 +36,10 @@ export class GameListComponent {
 
   changePage(page: number) : void {
     this.getGames(page);
+  }
+
+  joinGame(gameID: number){
+    this.busy = this.gameService.joinGame(gameID).subscribe();
   } 
 
   ngOnInit(): void {
