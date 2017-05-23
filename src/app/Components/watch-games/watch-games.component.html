@@ -1,0 +1,9 @@
+<h2>Watch Games</h2>
+
+<md-nav-list>
+    <h3 md-subheader>Playing</h3>
+    <md-list-item *ngFor="let game of games">
+        <a md-line href="#">{{ game.createdBy.name }}</a>
+        <button md-raised-button>Watch</button>
+    </md-list-item>
+</md-nav-list>

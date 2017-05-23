@@ -7,9 +7,11 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { GameListComponent } from './Components/game-list/game-list.component';
 import { StartGameComponent } from './Components/start-game/start-game.component';
 import { AuthCallbackComponent } from './Components/auth-callback/auth-callback.component';
+import { MyGamesComponent } from './Components/my-games/my-games.component';
+import { WatchGamesComponent } from './Components/watch-games/watch-games.component';
+import { BrowseGamesComponent } from './Components/browse-games/browse-games.component';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MdButtonModule, MdCheckboxModule, MdCardModule, MdListModule, MdToolbarModule, MdIconModule, MdTabsModule, MdInputModule, MdSelectModule} from '@angular/material';
@@ -29,7 +31,9 @@ const routes: Routes = [
   
 
   {path: '', redirectTo: '/home', pathMatch: 'full'},
-  {path: 'home', component: GameListComponent, canActivate: [AuthGuard]},
+  {path: 'home', component: MyGamesComponent, canActivate: [AuthGuard]},
+  {path: 'browse', component: BrowseGamesComponent},
+  {path: 'watch', component: WatchGamesComponent},
   {path: 'create', component: StartGameComponent},
   {path: 'authcallback', component: AuthCallbackComponent},
   {path: '**', redirectTo: '/home'},
@@ -39,11 +43,13 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    GameListComponent,
     StartGameComponent,
     AuthCallbackComponent,
-      GameBoardComponent,
-      TileComponent,
+    GameBoardComponent,
+    TileComponent,
+    MyGamesComponent,
+    WatchGamesComponent,
+    BrowseGamesComponent,
   ],
   imports: [
     BrowserModule,
