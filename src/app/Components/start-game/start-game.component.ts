@@ -3,6 +3,7 @@ import { GameService } from '../../Services/game.service';
 import { Game } from '../../Models/game';
 import { Template } from '../../Models/template';
 import { TemplateService } from '../../Services/template.service';
+
 import {Subscription} from 'rxjs';
 
 @Component({
