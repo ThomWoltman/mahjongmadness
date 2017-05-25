@@ -14,11 +14,6 @@ export class TemplateService {
 
     constructor(private http: Http) {}
 
-
-    // getTemplates(): Promise<Template[]> {
-    //     return Promise.resolve(Templates);
-    // }
-
     getTemplates(): Observable<Template[]> {
         return this.http.get(this.apiUrl + "/gameTemplates")
                 .map(this.extractData);

@@ -18,17 +18,13 @@ export class GameService {
 
     constructor(private http: Http, private authService: AuthService) {    }
 
-    // getGames(): Promise<Game[]> {
-    //     return Promise.resolve(Games);
-    // }
-
     getMyGames(): Observable<Game[]> {
-        return this.http.get(`${this.apiUrl}/games/`, { params: { pageSize: 100, player: this.authService.username } })
+        return this.http.get(`${this.apiUrl}/games/`, { params: { pageSize: 10, player: this.authService.username } })
             .map(this.extractData);
     }
 
-    getGames(page: number): Observable<Game[]> {
-        return this.http.get(`${this.apiUrl}/games/`, { params: { pageSize: 10, pageIndex: page, state: "open" } })
+    getGames(page?: number, player? :string, state?: string): Observable<Game[]> {
+        return this.http.get(`${this.apiUrl}/games/`, { params: { pageSize: 10, pageIndex: page, state: state, player: player } })
             .map(this.extractData);
     }
 
@@ -88,8 +84,4 @@ export class GameService {
         let body = res.json();
         return body || {};
     }
-
-    // addGame(game: Game) : void {
-    //     Games.push(game);
-    // }
 }

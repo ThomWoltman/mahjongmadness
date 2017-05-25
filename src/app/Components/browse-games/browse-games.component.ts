@@ -21,14 +21,8 @@ export class BrowseGamesComponent {
 
   currentPage = 0;
 
-  // getGames() : void {
-  //   this.gameService.getGames().then(games => this.games = games);
-  // }
-
   getGames(): void {
-    this.busy = this.gameService.getGames(this.currentPage).subscribe(games => this.games = games);//.filter(game =>
-      //game.createdBy._id != this.authService.username && 
-      //game.players.every(player => player._id != this.authService.username)));
+    this.busy = this.gameService.getGames(this.currentPage).subscribe(games => this.games = games);
   }
 
   changePage(page: number): void {

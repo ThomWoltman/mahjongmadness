@@ -20,10 +20,6 @@ export class StartGameComponent {
   maxPlayers: number;
   busy: Subscription;
 
-  // getTemplates() : void {
-  //   this.templateService.getTemplates().then(templates => this.templates = templates);
-  // }
-
   getTemplates() : void {
     this.busy = this.templateService.getTemplates()
       .subscribe(
@@ -31,7 +27,13 @@ export class StartGameComponent {
   }
 
   startGame() : void {
-      this.gameService.createGame(this.selectedTemplate._id, this.minPlayers, this.maxPlayers).subscribe();     
+      this.busy = this.gameService.createGame(this.selectedTemplate._id, this.minPlayers, this.maxPlayers).subscribe(game => this.emptyValues());    
+  }
+
+  private emptyValues() : void{
+    this.selectedTemplate = null;
+    this.minPlayers = null;
+    this.maxPlayers = null;
   }
 
   ngOnInit(): void {

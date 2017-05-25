@@ -13,10 +13,6 @@ export class TileComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-
-    this.tile
-
-  }
+  ngOnInit() {  }
 
 }

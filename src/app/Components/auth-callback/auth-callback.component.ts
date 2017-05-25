@@ -14,8 +14,7 @@ export class AuthCallbackComponent implements OnInit {
     ngOnInit(): void {
         let token = this.route.snapshot.queryParams['token'];
         let username = this.route.snapshot.queryParams['username'];
-        console.log(this.route.snapshot.queryParams);
-        console.log(token);
+        
         if(token){
             this.authService.login(token, username);
         }

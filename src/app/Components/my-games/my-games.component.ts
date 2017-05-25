@@ -18,9 +18,17 @@ export class MyGamesComponent {
 
     getMyGames(): void {
         this.busy = this.gameService.getMyGames().subscribe(games => {
-            this.openGames = games.filter(game => game.state == "open");
-            this.playingGames = games.filter(game => game.state == "playing");
+            this.openGames = this.filterOpenGames(games);
+            this.playingGames = this.filterPlayingGames(games);
         });
+    }
+
+    private filterOpenGames(games: Game[]) : Game[]{
+        return games.filter(game => game.state == "open");
+    }
+
+    private filterPlayingGames(games: Game[]) : Game[]{
+        return games.filter(game => game.state == "playing");
     }
 
     leaveGame(gameID: number): void {
