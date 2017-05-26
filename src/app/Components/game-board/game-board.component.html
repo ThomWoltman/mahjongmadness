@@ -1,10 +1,10 @@
-<md-card class="example-card" [ngBusy]="busy">
+<md-card *ngIf="selectedTemplate" class="example-card" [ngBusy]="busy">
 
 
-    <h2>Template Preview</h2>
+    <md-card-title><h2>{{selectedTemplate._id}} Preview</h2></md-card-title>
 
 
-    <md-card *ngIf="selectedTemplate" class="game-container" style='width: 500px; height: 500px'>
+    <md-card class="game-container" style='width: 500px; height: 500px'>
 
             <tile *ngFor="let tile of selectedTemplate.tiles" [tile]="tile">
             </tile>
