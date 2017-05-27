@@ -1,0 +1,18 @@
+div{
+  width: 35px;
+  height: 47px;
+  position: absolute;
+  background: white;
+  cursor: pointer;
+  box-shadow: 0.5px 0.5px 10px 1px rgba(0,0,0,0.1);
+  border-radius: 5px;
+  display: inline-block;
+
+  border: 1px solid #777;
+
+}
+
+div:hover{
+  color:yellow;
+  background-color: yellow;
+}
