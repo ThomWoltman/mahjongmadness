@@ -2,43 +2,27 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule,Component, Input, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule, JsonpModule } from '@angular/http';
-import { CommonModule } from '@angular/common';
 
-import { RouterModule, Routes } from '@angular/router';
+import { AppRoutingModule } from 'app/shell/modules/app-routing.module';
+import { MajesticSharedModule} from 'app/shared/modules/majestic-shared.module';
 
-import { AppComponent } from './app.component';
-import { StartGameComponent } from './Components/start-game/start-game.component';
-import { AuthCallbackComponent } from './Components/auth-callback/auth-callback.component';
-import { MyGamesComponent } from './Components/my-games/my-games.component';
-import { WatchGamesComponent } from './Components/watch-games/watch-games.component';
-import { BrowseGamesComponent } from './Components/browse-games/browse-games.component';
+import { AppComponent } from 'app/shell/components/app/app.component';
+import { StartGameComponent } from 'app/browse/Components/start-game/start-game.component';
+import { AuthCallbackComponent } from 'app/shell/Components/callback/auth-callback.component';
+import { WatchGamesComponent } from 'app/browse/Components/watch-games/watch-games.component';
+
+import {GameBoardComponent} from "app/game/Components/game-board/game-board.component";
+import { TileComponent } from 'app/game/Components/tile/tile.component';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MdButtonModule, MdCheckboxModule, MdCardModule, MdListModule, MdToolbarModule, MdIconModule, MdTabsModule, MdInputModule, MdSelectModule} from '@angular/material';
 import {BusyModule} from 'angular2-busy';
 import 'hammerjs';
 
-import { GameService } from './Services/game.service';
-import { TemplateService } from './Services/template.service';
-import { AuthGuard } from './Services/auth-guard.service';
-import { AuthService } from './Services/auth.service';
-import {GameBoardComponent} from "./Components/game-board/game-board.component";
-import { TileComponent } from './Components/tile/tile.component';
+import { GameService } from 'app/shared/Services/game.service';
+import { TemplateService } from 'app/browse/Services/template.service';
 
-
-
-const routes: Routes = [
-  
-
-  {path: '', redirectTo: '/home', pathMatch: 'full'},
-  {path: 'home', component: MyGamesComponent, canActivate: [AuthGuard]},
-  {path: 'browse', component: BrowseGamesComponent},
-  {path: 'watch', component: WatchGamesComponent},
-  {path: 'create', component: StartGameComponent},
-  {path: 'authcallback', component: AuthCallbackComponent},
-  {path: '**', redirectTo: '/home'},
-  
-];
+import { AuthService } from 'app/shared/Services/auth.service';
 
 @NgModule({
   declarations: [
@@ -47,40 +31,21 @@ const routes: Routes = [
     AuthCallbackComponent,
     GameBoardComponent,
     TileComponent,
-    MyGamesComponent,
-    WatchGamesComponent,
-    BrowseGamesComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     JsonpModule,
-    CommonModule,
-    RouterModule.forRoot(routes),
+    AppRoutingModule,
     BrowserAnimationsModule,
     BusyModule,
-    MdButtonModule, 
-    MdCheckboxModule,
-    MdCardModule,
-    MdListModule,
-    MdToolbarModule,
-    MdIconModule,
-    MdTabsModule,
-    MdInputModule,
-    MdSelectModule,
+    MajesticSharedModule,
   ],
   exports: [
-    RouterModule,
-    MdButtonModule, 
-    MdCheckboxModule,
   ],
   providers: [
     TemplateService,
-    AuthGuard,
-    AuthService,
-    GameService,
-
   ],
   bootstrap: [AppComponent]
 })

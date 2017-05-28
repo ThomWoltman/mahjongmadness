@@ -1,0 +1,37 @@
+<h2>All Games</h2>
+
+<div class="content">
+
+    <div class="list">
+        <md-nav-list [ngBusy]="busy">
+            <h3 md-subheader>Open</h3>
+            <md-list-item *ngFor="let game of games">
+                <a md-line>{{ game.createdBy.name }}</a>
+                <button md-raised-button (click)="onSelect(game)"><md-icon>info_outline</md-icon></button>
+            </md-list-item>
+        </md-nav-list>
+
+        <div class="pagination">
+            <button md-button (click)="changePage(0)">1</button>
+            <button md-button (click)="changePage(1)">2</button>
+            <button md-button (click)="changePage(2)">3</button>
+            <button md-button (click)="changePage(3)">4</button>
+            <button md-button (click)="changePage(4)">5</button>
+        </div>
+    </div>
+
+    <div *ngIf="selectedGame" class="gameInfo">
+        <h2>{{selectedGame.createdBy.name}}'s Game</h2>
+        <md-nav-list>
+            <h3 md-subheader>Players (max {{selectedGame.maxPlayers}})</h3>
+            <md-list-item *ngFor="let player of selectedGame.players">
+                <a md-line>{{ player.name }}</a>
+            </md-list-item>
+        </md-nav-list>
+
+        <md-list *ngIf="!(selectedGame | isjoined)">
+            <md-list-item>
+                <button md-raised-button (click)="joinGame(selectedGame._id)">Join</button>
+            </md-list-item>
+        </md-list>
+    </div>
