@@ -24,5 +24,6 @@
         <md-icon>done</md-icon>
     </button>
 
-<game-board [selectedTemplate]="selectedTemplate"> </game-board>
+
+<game-board *ngIf="selectedTemplate" [tiles]="selectedTemplate.tiles"></game-board>
 </md-card>

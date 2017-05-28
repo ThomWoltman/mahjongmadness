@@ -17,7 +17,7 @@ import { isNullOrUndefined } from "util";
 })
 export class GameBoardComponent {
     //variables
-    @Input() selectedTemplate: Template;
+    @Input() tiles: Tile[];
 
     constructor() { }
 
