@@ -2,10 +2,11 @@ import { NgModule } from '@angular/core';
 
 import {MajesticSharedModule} from 'app/shared/modules/majestic-shared.module';
 
-import {MyGamesComponent} from '../my-games/my-games.component';
-import {BrowseGamesComponent} from '../browse-games/browse-games.component';
-import {GamesComponent} from '../games/games.component';
-import { WatchGamesComponent } from '../watch-games/watch-games.component';
+import {MyGamesComponent} from './my-games/my-games.component';
+import {BrowseGamesComponent} from './browse-games/browse-games.component';
+import {GamesComponent} from './games/games.component';
+import { WatchGamesComponent } from './watch-games/watch-games.component';
+//import { PlayGameComponent } from 'app/game/components/play-game/play-game.component';
 
 import {BusyModule} from 'angular2-busy';
 
@@ -16,7 +17,7 @@ import { IsJoinedPipe } from 'app/browse/pipes/isjoined-games.pipe';
 
 import { CommonModule } from '@angular/common';
 
-import { GamesRoutingModule } from './games-routing.module';
+import { BrowseRoutingModule } from './browse-routing.module';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { GamesRoutingModule } from './games-routing.module';
     BrowseGamesComponent,
     GamesComponent,
     WatchGamesComponent,
+    //PlayGameComponent,
     PlayingGamesPipe,
     OpenGamesPipe,
     IsJoinedPipe,
@@ -32,11 +34,11 @@ import { GamesRoutingModule } from './games-routing.module';
     MajesticSharedModule,
     BusyModule,
     CommonModule,
-    GamesRoutingModule,
+    BrowseRoutingModule,
   ],
   exports: [
   ],
   providers: [
   ]
 })
-export class GamesModule { }
+export class BrowseModule { }

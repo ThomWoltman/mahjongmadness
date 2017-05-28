@@ -11,12 +11,11 @@ import { AuthGuard } from 'app/shared/Services/auth-guard.service';
 
 const routes: Routes = [
   
-
-  {path: '', redirectTo: '/games', pathMatch: 'full'},
-  {path: 'games', loadChildren: 'app/browse/components/games/games.module#GamesModule', canActivate: [AuthGuard]},
-  {path: 'games/create', component: StartGameComponent},
+  {path: '', redirectTo: 'browse', pathMatch: 'full'},
+  {path: 'browse', loadChildren: 'app/browse/components/browse.module#BrowseModule', canActivate: [AuthGuard]},
+  {path: 'create', component: StartGameComponent},
   {path: 'authcallback', component: AuthCallbackComponent},
-  {path: '**', redirectTo: '/games'},
+  {path: '**', redirectTo: 'browse'},
   
 ];
 
