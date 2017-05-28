@@ -5,7 +5,7 @@
         <md-list-item *ngFor="let game of (games | playinggames)">
 
             <a md-line href="#">{{ game.createdBy.name }}</a>
-            <button md-raised-button>Play</button>
+            <button md-raised-button (click)="play(game._id)" >play</button>
         </md-list-item>
         <h3 md-subheader>Open</h3>
         <md-list-item *ngFor="let game of (games | opengames)">

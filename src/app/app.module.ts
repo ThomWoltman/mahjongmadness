@@ -23,6 +23,7 @@ import { GameService } from 'app/shared/Services/game.service';
 import { TemplateService } from 'app/browse/Services/template.service';
 
 import { AuthService } from 'app/shared/Services/auth.service';
+import { GameComponent } from './Browse/Components/game/game.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { AuthService } from 'app/shared/Services/auth.service';
     AuthCallbackComponent,
     GameBoardComponent,
     TileComponent,
+    GameComponent,
   ],
   imports: [
     BrowserModule,
