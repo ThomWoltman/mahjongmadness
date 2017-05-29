@@ -6,15 +6,15 @@ import {BusyModule} from 'angular2-busy';
 import { PlayGameComponent } from './play-game/play-game.component';
 
 import { GameRoutingModule } from './game-routing.module';
-import { TileService } from '../../Shared/Services/tile.service';
 import {GameBoardComponent} from "./game-board/game-board.component";
-
+import {TileComponent} from"./tile/tile.component";
 
 
 @NgModule({
     declarations: [
         PlayGameComponent,
-        GameBoardComponent
+        GameBoardComponent,
+        TileComponent,
     ],
     imports: [
         MajesticSharedModule,
@@ -22,9 +22,10 @@ import {GameBoardComponent} from "./game-board/game-board.component";
         BusyModule,
     ],
     exports: [
+        GameBoardComponent,
+        TileComponent,
     ],
     providers: [
-        TileService
     ]
 })
 export class GameModule { }

@@ -23,16 +23,8 @@ export class TileService {
 
 
     getTiles(gameID: number) :Observable<Tile[]>{
-        let headers = new Headers({
-            'Content-Type': 'application/json',
-            'x-username': this.authService.username,
-            'x-token': this.authService.token,
-        });
 
-        let options = new RequestOptions({ headers: headers });
-
-        return this.http.post(`${this.apiUrl}/games/${gameID}/tiles`,
-            {}, options)
+        return this.http.get(`${this.apiUrl}/games/${gameID}/tiles`, {params: { matched: "false" }})
             .map(this.extractData);
     }
 
