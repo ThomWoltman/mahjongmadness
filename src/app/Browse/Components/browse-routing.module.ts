@@ -6,7 +6,6 @@ import {
 
 import { MyGamesComponent } from './my-games/my-games.component';
 import { BrowseGamesComponent } from './browse-games/browse-games.component';
-import { GamesComponent } from './games/games.component';
 import { WatchGamesComponent } from './watch-games/watch-games.component';
 
 const routes: Routes = [
