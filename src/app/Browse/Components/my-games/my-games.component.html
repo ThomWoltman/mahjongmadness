@@ -2,11 +2,13 @@
 <div class="content">
     <md-nav-list [ngBusy]="busy">
         <h3 md-subheader>Playing</h3>
-        <a md-list-item *ngFor="let game of (games | playinggames)"  routerLink="/browse/{{game._id}}/play" routerLinkActive="active">
+        <a md-list-item *ngFor="let game of (games | playinggames)"  [routerLink]="['play', game._id]" routerLink="/browse/play/{{game._id}}" [routerLink]="['id', game._id]" routerLinkActive="active" [id]="game._id">
 
+            <a md-line href="#">{{ game.createdBy.name }}</a>
+            <button md-raised-button (click)="play(game._id)" >play</button>
             <a md-line>{{ game.createdBy.name }}</a>
             <div md-line>{{ game._id}}</div>
-            <!--<button md-raised-button>Play</button>-->
+
         </a>
         <h3 md-subheader>Open</h3>
         <md-list-item *ngFor="let game of (games | opengames)">
@@ -14,4 +16,5 @@
             <button md-raised-button (click)="leaveGame(game._id)">Leave</button>
         </md-list-item>
     </md-nav-list>
+
 </div>

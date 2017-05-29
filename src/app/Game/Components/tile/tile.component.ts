@@ -10,9 +10,14 @@ import {Tile} from "../../Models/tile";
 export class TileComponent implements OnInit {
 
   @Input() tile: Tile;
+  class: string;
+  number:string;
 
   constructor() { }
 
-  ngOnInit() {  }
+  ngOnInit() {
+    this.class = this.tile.tile.suit.toLowerCase();
+   this.number = this.tile.tile.name.toLowerCase();
+  }
 
 }

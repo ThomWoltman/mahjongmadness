@@ -6,22 +6,25 @@ import { StartGameRoutingModule } from './start-game-routing.module';
 import {BusyModule} from 'angular2-busy';
 
 import { StartGameComponent } from './start-game.component';
-import {GameBoardComponent} from "app/game/Components/game-board/game-board.component";
-import { TileComponent } from 'app/game/Components/tile/tile.component';
+// import {GameBoardComponent} from "app/game/Components/game-board/game-board.component";
+// import { TileComponent } from 'app/game/Components/tile/tile.component';
 
 import { TemplateService } from 'app/browse/Services/template.service';
+
+import { GameModule } from 'app/game/components/game.module';
 
 @NgModule({
   declarations: [
     StartGameComponent,
-    GameBoardComponent,
-    TileComponent,
+    // GameBoardComponent,
+    // TileComponent,
   ],
   imports: [
     MajesticSharedModule,
     BusyModule,
     StartGameRoutingModule,
     FormsModule,
+      GameModule,
   ],
   exports: [
   ],

@@ -26,6 +26,10 @@ export class MyGamesComponent {
         this.getMyGames();
     }
 
+    play(gameID: number): void {
+        console.log(gameID);
+    }
+
     ngOnInit(): void {
         this.getMyGames();
     }
