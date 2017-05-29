@@ -4,7 +4,6 @@ import {MajesticSharedModule} from 'app/shared/modules/majestic-shared.module';
 
 import {MyGamesComponent} from './my-games/my-games.component';
 import {BrowseGamesComponent} from './browse-games/browse-games.component';
-import {GamesComponent} from './games/games.component';
 import { WatchGamesComponent } from './watch-games/watch-games.component';
 //import { PlayGameComponent } from 'app/game/components/play-game/play-game.component';
 
@@ -23,7 +22,6 @@ import { BrowseRoutingModule } from './browse-routing.module';
   declarations: [
     MyGamesComponent,
     BrowseGamesComponent,
-    GamesComponent,
     WatchGamesComponent,
     //PlayGameComponent,
     PlayingGamesPipe,

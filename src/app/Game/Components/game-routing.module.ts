@@ -8,7 +8,7 @@ import { PlayGameComponent } from 'app/game/components/play-game/play-game.compo
 
 const routes: Routes = [
     {
-        path: 'play',
+        path: 'play/:id',
         component: PlayGameComponent,
     },
 ];
