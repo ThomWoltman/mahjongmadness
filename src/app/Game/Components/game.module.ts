@@ -9,7 +9,7 @@ import { GameRoutingModule } from './game-routing.module';
 import {GameBoardComponent} from "./game-board/game-board.component";
 import {TileComponent} from"./tile/tile.component";
 import {TemplateTileComponent} from "./template-tile/template-tile.component";
-import {TemplateGameBoardComponent} from "./template-game-board/game-board.component";
+import {TemplateGameBoardComponent} from "./template-game-board/template-game-board.component";
 
 @NgModule({
     declarations: [
