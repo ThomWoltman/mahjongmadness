@@ -9,6 +9,9 @@ export class GameBoardService {
 
   initTiles(tiles: Tile[]){
       this.tiles = tiles;
-      console.log(tiles[0]);
+  }
+
+  tileClicked(tile: Tile){
+    console.log("from service: " + tile.tile.suit);
   }
 }
