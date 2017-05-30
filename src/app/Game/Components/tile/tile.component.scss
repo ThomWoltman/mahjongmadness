@@ -282,11 +282,11 @@ $tile-width-text: 13.2px;
 .wind-south { background-image: url(./../../../Img/tiles/wind_south.png); }
 .wind-west { background-image: url(./../../../Img/tiles/wind_west.png); }
 
-.season-fall { background-image: url(./../../../Img/tiles/season_fall.png); }
+.season-fall { background-color: white; }
 .season-spring { background-image: url(./../../../Img/tiles/season_spring.png); }
 .season-summer { background-image: url(./../../../Img/tiles/season_summer.png); }
 .season-winter { background-image: url(./../../../Img/tiles/season_winter.png); }
-.season-autumn { background-color: white; }
+.season-autumn { background-image: url(./../../../Img/tiles/season_fall.png); }
 
 .flower-bamboo { background-image: url(./../../../Img/tiles/flower_bamboo.png); }
 .flower-chrysantememum { background-image: url(./../../../Img/tiles/flower_chrysanthemum.png); }
