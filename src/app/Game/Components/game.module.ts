@@ -11,6 +11,7 @@ import {TileComponent} from"./tile/tile.component";
 import {TemplateTileComponent} from "./template-tile/template-tile.component";
 import {TemplateGameBoardComponent} from "./template-game-board/template-game-board.component";
 
+
 @NgModule({
     declarations: [
         PlayGameComponent,
@@ -23,13 +24,14 @@ import {TemplateGameBoardComponent} from "./template-game-board/template-game-bo
         MajesticSharedModule,
         GameRoutingModule,
         BusyModule,
-
+        
     ],
     exports: [
         GameBoardComponent,
         TileComponent,
         TemplateTileComponent,
         TemplateGameBoardComponent,
+        
     ],
     providers: [
     ]

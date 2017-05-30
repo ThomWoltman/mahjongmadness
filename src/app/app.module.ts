@@ -9,6 +9,7 @@ import { AuthCallbackComponent } from 'app/shell/Components/callback/auth-callba
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
+
 @NgModule({
   declarations: [
     AppComponent,

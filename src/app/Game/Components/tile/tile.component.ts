@@ -20,4 +20,9 @@ export class TileComponent implements OnInit {
    this.number = this.tile.tile.name.toLowerCase();
   }
 
+  showTile(event){
+    console.log(this.tile.zPos + " " + this.class + "-" + this.number);
+    console.log(event);
+  }
+
 }
