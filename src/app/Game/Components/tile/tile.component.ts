@@ -1,5 +1,7 @@
 import { Component, OnInit,Input } from '@angular/core';
 import {Tile} from "../../Models/tile";
+import { GameBoardService } from '../../services/game-board.service';
+
 
 
 @Component({
@@ -13,7 +15,7 @@ export class TileComponent implements OnInit {
   class: string;
   number:string;
 
-  constructor() { }
+  constructor(private gameBoardService: GameBoardService) { }
 
   ngOnInit() {
     this.class = this.tile.tile.suit.toLowerCase();
@@ -21,6 +23,7 @@ export class TileComponent implements OnInit {
   }
 
   showTile(event){
+    this.gameBoardService.tileClicked(this.tile);
     console.log(this.tile.zPos + " " + this.class + "-" + this.number);
     console.log(event);
   }
