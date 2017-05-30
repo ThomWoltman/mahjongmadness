@@ -1,7 +1,7 @@
 export class Tile {
     xPos: number;
     yPos: number;
-    ZPos: number;
+    zPos: number;
     tile: {
         _id: number;
         suit: string;

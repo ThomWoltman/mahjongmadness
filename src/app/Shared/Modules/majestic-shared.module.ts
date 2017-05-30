@@ -10,9 +10,10 @@ import { MajesticMdModule } from './majestic-md.module';
 import { CommonModule } from '@angular/common';
 import { HttpModule, JsonpModule } from '@angular/http';
 
+
 @NgModule({
   declarations: [
-    
+
   ],
   imports: [
     MajesticMdModule,
@@ -30,7 +31,7 @@ import { HttpModule, JsonpModule } from '@angular/http';
     AuthService,
     GameService,
     AuthGuard,
-      TileService,
+    TileService,
   ]
 })
 export class MajesticSharedModule { }
