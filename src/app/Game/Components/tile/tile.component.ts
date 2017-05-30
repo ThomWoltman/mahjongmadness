@@ -27,5 +27,9 @@ export class TileComponent implements OnInit {
     console.log(this.tile.zPos + " " + this.class + "-" + this.number);
     console.log(event);
   }
+    deleteElement() {
+       // this.elementDeleted.emit();
+        
+    }
 
 }
