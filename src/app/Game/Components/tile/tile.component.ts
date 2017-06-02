@@ -20,16 +20,15 @@ export class TileComponent implements OnInit {
   ngOnInit() {
     this.class = this.tile.tile.suit.toLowerCase();
    this.number = this.tile.tile.name.toLowerCase();
+     // document.getElementById(this.tile._id.toString()).innerHTML = "";
+
   }
 
   showTile(event){
     this.gameBoardService.tileClicked(this.tile);
-    console.log(this.tile.zPos + " " + this.class + "-" + this.number);
-    console.log(event);
+
+
   }
-    deleteElement() {
-       // this.elementDeleted.emit();
-        
-    }
+
 
 }
