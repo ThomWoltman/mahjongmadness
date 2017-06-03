@@ -25,24 +25,34 @@ export class TileComponent implements OnInit {
   }
 
   showTile(event) {
+    //tile is selected, and clicked again
     if (this.isSelected) {
-      var element = document.getElementById(this.class + "-" + this.number + "-" + this.tile._id);
-      element.style.opacity = "0.0";
-      this.gameBoardService.tileUnclicked(this.tile);
-      this.isSelected = false;
+      this.unSelectTile();
     }
+
+    //tile is not selected and clicked
     else {
-      console.log(this.tile.zPos + " " + this.class + "-" + this.number);
-      console.log(event);
-      console.log(this.gameBoardService.isSelectAble());
+      //check if tile can be selected
       if (this.gameBoardService.isSelectAble()) {
-        var element = document.getElementById(this.class + "-" + this.number + "-" + this.tile._id);
-        element.style.backgroundColor = "red";
-        element.style.opacity = "0.6";
-        this.isSelected = true;
+        this.selectTile();
       }
+      //tell service tile is clicked
       this.gameBoardService.tileClicked(this.tile);
     }
+  }
+
+  private selectTile() {
+    var element = document.getElementById(this.class + "-" + this.number + "-" + this.tile._id);
+    element.style.backgroundColor = "red";
+    element.style.opacity = "0.6";
+    this.isSelected = true;
+  }
+
+  private unSelectTile(){
+    var element = document.getElementById(this.class + "-" + this.number + "-" + this.tile._id);
+    element.style.opacity = "0.0";
+    this.gameBoardService.tileUnclicked(this.tile);
+    this.isSelected = false;
   }
   
 

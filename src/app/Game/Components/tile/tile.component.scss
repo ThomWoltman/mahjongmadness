@@ -337,14 +337,16 @@ div{
   font-size: 8px;
   font-style: oblique;
   background-repeat: no-repeat;
-  overflow:hidden
+  overflow: hidden;
 }
 
-#tile{
-  opacity: 1.0;
-}
+//TODO
+// .tile:hover{
+//   opacity: 0.6;
+//   background-color: yellow;
+// }
 
-div:hover{
-  background-color: yellow;
-  opacity: 0.4;
-}
+// div:hover{
+//   background-color: yellow;
+//   opacity: 0.4;
+// }

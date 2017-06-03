@@ -15,7 +15,7 @@ export class GameBoardService {
 
   tileClicked(tile: Tile) {
     //set selected tile
-    if (!this.selectedTile) {
+    if (this.isSelectAble()) {
       this.selectedTile = tile;
     }
     //check if matched
@@ -52,6 +52,5 @@ export class GameBoardService {
   }
     deleteTile(tile) {
         document.getElementById(tile._id.toString()).remove();
-        //document.getElementById(this.selectedTile._id.toString()).remove();
     }
 }

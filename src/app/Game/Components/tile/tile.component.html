@@ -2,5 +2,5 @@
     <div id="{{class}}-{{number}}-{{tile._id}}"></div>-->
 
 <div (click)="showTile($event)" id="{{tile._id}}" [style.left.px]=tile.xPos*38+50 [style.top.px]=tile.yPos*51 [style.z-index]=tile.zPos class="{{class}}-{{number}}">
-    <div></div>
+    <div id="{{class}}-{{number}}-{{tile._id}}" class="tile"></div>
 </div>
