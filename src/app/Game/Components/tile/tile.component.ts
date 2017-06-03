@@ -43,7 +43,8 @@ export class TileComponent implements OnInit {
       }
       this.gameBoardService.tileClicked(this.tile);
     }
-    
   }
+  
+
 
 }
