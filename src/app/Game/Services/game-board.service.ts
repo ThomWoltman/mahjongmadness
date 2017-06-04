@@ -1,45 +1,50 @@
 import { Injectable } from '@angular/core';
 import { Tile } from '../models/tile';
-import {isNullOrUndefined, isUndefined} from "util";
+import { isNullOrUndefined, isUndefined } from "util";
 
 @Injectable()
 export class GameBoardService {
-  constructor(){ }
+  constructor() { }
 
   tiles: Tile[];
-  tile1: Tile;
-  tile2: Tile;
+  selectedTile: Tile;
 
-  initTiles(tiles: Tile[]){
-      this.tiles = tiles;
+  initTiles(tiles: Tile[]) {
+    this.tiles = tiles;
   }
 
-  tileClicked(tile: Tile) : boolean{
-    console.log("from service: " + tile.tile.suit);
-    if(this.tile1 == null){
-      this.tile1 = tile;
-      return false;
-
-    }else if(this.tile2 == null){
-        this.tile2 = tile;
-        return this.tileMatch();
+  tileClicked(tile: Tile) {
+    //set selected tile
+    if (this.isSelectAble()) {
+      this.selectedTile = tile;
+    }
+    //check if matched
+    else {
+      this.tileMatch(tile);
     }
   }
 
-  tileMatch(): boolean{
-    if(this.tile1.tile.suit == this.tile2.tile.suit && this.tile1.tile.name == this.tile2.tile.name){
+  tileUnclicked(tile: Tile) {
+    if (tile === this.selectedTile) {
+      this.selectedTile = undefined;
+    }
+  }
+
+  isSelectAble(): boolean {
+    return this.selectedTile === undefined;
+  }
+
+  tileMatch(tile: Tile): boolean{
+    if(this.selectedTile.tile.suit == tile.tile.suit && this.selectedTile.tile.name == tile.tile.name){
 
       console.log("match!!");
-      this.deleteTile(this.tile1);
-      this.deleteTile(this.tile2);
-        this.tile1 = null;
-        this.tile2 = null;
+      this.deleteTile(this.selectedTile);
+      this.deleteTile(tile);
+        this.selectedTile = undefined;
         return true;
 
-    }else{
+    } else{
       console.log("No match");
-        this.tile1 = null;
-        this.tile2 = null;
         return false;
 
     }
@@ -47,6 +52,5 @@ export class GameBoardService {
   }
     deleteTile(tile) {
         document.getElementById(tile._id.toString()).remove();
-
     }
 }

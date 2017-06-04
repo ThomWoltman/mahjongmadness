@@ -1,5 +1,5 @@
-import { Component, OnInit,Input } from '@angular/core';
-import {Tile} from "../../Models/tile";
+import { Component, OnInit, Input } from '@angular/core';
+import { Tile } from "../../Models/tile";
 import { GameBoardService } from '../../services/game-board.service';
 
 
@@ -13,22 +13,48 @@ export class TileComponent implements OnInit {
 
   @Input() tile: Tile;
   class: string;
-  number:string;
+  number: string;
+  isSelected: boolean;
 
   constructor(private gameBoardService: GameBoardService) { }
 
   ngOnInit() {
     this.class = this.tile.tile.suit.toLowerCase();
-   this.number = this.tile.tile.name.toLowerCase();
-     // document.getElementById(this.tile._id.toString()).innerHTML = "";
-
+    this.number = this.tile.tile.name.toLowerCase();
+    this.isSelected = false;
   }
 
-  showTile(event){
-    this.gameBoardService.tileClicked(this.tile);
+  showTile(event) {
+    //tile is selected, and clicked again
+    if (this.isSelected) {
+      this.unSelectTile();
+    }
 
-
+    //tile is not selected and clicked
+    else {
+      //check if tile can be selected
+      if (this.gameBoardService.isSelectAble()) {
+        this.selectTile();
+      }
+      //tell service tile is clicked
+      this.gameBoardService.tileClicked(this.tile);
+    }
   }
+
+  private selectTile() {
+    var element = document.getElementById(this.class + "-" + this.number + "-" + this.tile._id);
+    element.style.backgroundColor = "red";
+    element.style.opacity = "0.6";
+    this.isSelected = true;
+  }
+
+  private unSelectTile(){
+    var element = document.getElementById(this.class + "-" + this.number + "-" + this.tile._id);
+    element.style.opacity = "0.0";
+    this.gameBoardService.tileUnclicked(this.tile);
+    this.isSelected = false;
+  }
+  
 
 
 }
