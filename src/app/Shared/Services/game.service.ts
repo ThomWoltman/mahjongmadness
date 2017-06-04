@@ -9,6 +9,7 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import { Headers, RequestOptions } from '@angular/http';
 import { AuthService } from '../Services/auth.service';
+import {Player} from "../Models/player";
 
 @Injectable()
 export class GameService {
@@ -76,6 +77,19 @@ export class GameService {
 
         return this.http.delete(`${this.apiUrl}/games/${gameID}/players`,
              options)
+            .map(this.extractData);
+    }
+    getGamePlayerInfo(gameID: number): Observable<Player[]>{
+        let headers = new Headers({
+            'Content-Type': 'application/json',
+            'x-username': this.authService.username,
+            'x-token': this.authService.token,
+        });
+
+        let options = new RequestOptions({ headers: headers });
+
+        return this.http.get(`${this.apiUrl}/games/${gameID}/players`,
+            options)
             .map(this.extractData);
     }
 
