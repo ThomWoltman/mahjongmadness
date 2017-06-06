@@ -25,6 +25,7 @@ export class TileComponent implements OnInit {
   }
 
   showTile(event) {
+    console.log("z = " + this.tile.zPos + " x = " + this.tile.xPos + " y = " + this.tile.yPos);
     //tile is selected, and clicked again
     if (this.isSelected) {
       this.unSelectTile();
@@ -33,7 +34,7 @@ export class TileComponent implements OnInit {
     //tile is not selected and clicked
     else {
       //check if tile can be selected
-      if (this.gameBoardService.isSelectAble()) {
+      if (this.gameBoardService.isSelectAble(this.tile)) {
         this.selectTile();
       }
       //tell service tile is clicked

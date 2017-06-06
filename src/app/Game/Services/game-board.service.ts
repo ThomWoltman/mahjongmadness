@@ -14,12 +14,13 @@ export class GameBoardService {
   }
 
   tileClicked(tile: Tile) {
+    console.log("is surrounded = " + this.isNotSurroundedAtSides(tile));
     //set selected tile
-    if (this.isSelectAble()) {
+    if (this.isSelectAble(tile)) {
       this.selectedTile = tile;
     }
     //check if matched
-    else {
+    else if ( this.isNotSurroundedAtSides(tile)) {
       this.tileMatch(tile);
     }
   }
@@ -30,8 +31,17 @@ export class GameBoardService {
     }
   }
 
-  isSelectAble(): boolean {
-    return this.selectedTile === undefined;
+  isSelectAble(tile: Tile): boolean {
+    return this.selectedTile === undefined && this.isNotSurroundedAtSides(tile);
+  }
+
+  isNotSurroundedAtSides(tile: Tile) : boolean {
+    //check if there is a tile on the left and right.
+    var surroundedTile1 = this.tiles.find(temp => temp.xPos === tile.xPos - 2 && temp.yPos === tile.yPos && temp.zPos === tile.zPos);
+    var surroundedTile2 = this.tiles.find(temp => temp.xPos === tile.xPos + 2 && temp.yPos === tile.yPos && temp.zPos === tile.zPos);
+
+    //if no tile left OR right it is not surrounded
+    return surroundedTile1 === undefined || surroundedTile2 === undefined;
   }
 
   tileMatch(tile: Tile): boolean{
