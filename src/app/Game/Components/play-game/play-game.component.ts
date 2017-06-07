@@ -23,13 +23,14 @@ export class PlayGameComponent {
             this.id = +params['id'];
         });
         this.id = route.snapshot.params['id'];
+        //this.tileService.setID(this.id);
         console.log("playGame: "+this.id);
     }
 
     ngOnInit() {
         this.busy = this.tileService.getTiles(this.id).subscribe(tiles => {
         this.tiles = tiles;
-        this.gameBoardService.initTiles(this.tiles);
+        this.gameBoardService.initTiles(this.tiles, this.id);
     });     
   }
 

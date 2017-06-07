@@ -79,6 +79,20 @@ export class GameService {
             .map(this.extractData);
     }
 
+    startGame(gameID: number) {
+        let headers = new Headers({
+            'Content-Type': 'application/json',
+            'x-username': this.authService.username,
+            'x-token': this.authService.token,
+        });
+
+        let options = new RequestOptions({ headers: headers });
+
+        return this.http.post(`${this.apiUrl}/games/${gameID}/start`,
+            {}, options)
+            .map(this.extractData);
+    }
+
     private extractData(res: Response) {
         console.log(res);
         let body = res.json();

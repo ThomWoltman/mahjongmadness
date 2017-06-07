@@ -26,6 +26,10 @@ export class MyGamesComponent {
         this.getMyGames();
     }
 
+    startGame(gameID: number): void {
+        this.busy = this.gameService.startGame(gameID).subscribe(game => this.getMyGames());
+    }
+
     play(gameID: number): void {
         console.log(gameID);
     }
