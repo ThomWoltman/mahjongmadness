@@ -12,49 +12,48 @@ import { GameBoardService } from '../../services/game-board.service';
 export class TileComponent implements OnInit {
 
   @Input() tile: Tile;
-  class: string;
-  number: string;
+  suit: string;
+  name: string;
   isSelected: boolean;
 
   constructor(private gameBoardService: GameBoardService) { }
 
   ngOnInit() {
-    this.class = this.tile.tile.suit.toLowerCase();
-    this.number = this.tile.tile.name.toLowerCase();
+    this.suit = this.tile.tile.suit.toLowerCase();
+    this.name = this.tile.tile.name.toLowerCase();
     this.isSelected = false;
   }
 
   showTile(event) {
-    //tile is selected, and clicked again
-    if (this.isSelected) {
-      this.unSelectTile();
-    }
-
-    //tile is not selected and clicked
-    else {
-      //check if tile can be selected
-      if (this.gameBoardService.isSelectAble()) {
+      console.log("suit = " + this.suit + " name = " + this.name);
+      if (this.gameBoardService.tileClicked(this.tile)) {
         this.selectTile();
       }
-      //tell service tile is clicked
-      this.gameBoardService.tileClicked(this.tile);
-    }
+      else {
+        this.unSelectTile();
+      }
   }
 
   private selectTile() {
-    var element = document.getElementById(this.class + "-" + this.number + "-" + this.tile._id);
-    element.style.backgroundColor = "red";
-    element.style.opacity = "0.6";
-    this.isSelected = true;
+    var element = document.getElementById(this.suit + "-" + this.name + "-" + this.tile._id);
+
+    if(element !== null){
+      element.style.backgroundColor = "red";
+      element.style.opacity = "0.6";
+      this.isSelected = true;
+    }
   }
 
-  private unSelectTile(){
-    var element = document.getElementById(this.class + "-" + this.number + "-" + this.tile._id);
-    element.style.opacity = "0.0";
-    this.gameBoardService.tileUnclicked(this.tile);
-    this.isSelected = false;
+  public unSelectTile() {
+    var element = document.getElementById(this.suit + "-" + this.name + "-" + this.tile._id);
+    
+    if(element !== null){
+      element.style.opacity = "0.0";
+      this.gameBoardService.tileUnclicked(this.tile);
+      this.isSelected = false;
+    }
   }
-  
+
 
 
 }
