@@ -4,15 +4,29 @@ import { isNullOrUndefined, isUndefined } from "util";
 
 import { TileComponent } from "../Components/tile/tile.component";
 
+import { Http, Response } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/map';
+
+import { Headers, RequestOptions } from '@angular/http';
+import { AuthService } from 'app/shared/Services/auth.service';
+
+//import { TileService } from "app/shared/services/tile.service";
+
 @Injectable()
 export class GameBoardService {
-  constructor() { }
+  constructor(private http: Http, private authService: AuthService) { }
 
+  private apiUrl = "http://mahjongmayhem.herokuapp.com";
   tiles: Tile[];
   selectedTile: Tile;
+  gameID: number;
 
-  initTiles(tiles: Tile[]) {
+  initTiles(tiles: Tile[], gameId: number) {
     this.tiles = tiles;
+    this.gameID = gameId;
+    this.selectedTile = undefined;
   }
 
   tileClicked(tile: Tile) : boolean {
@@ -53,6 +67,9 @@ export class GameBoardService {
 
   hasNoTileOnTop(tile) : boolean {
     var topTile1 = this.tiles.find(temp => temp.xPos === tile.xPos && temp.yPos === tile.yPos && temp.zPos === tile.zPos + 1);
+    var topTile2 = this.tiles.find(temp => temp.xPos === tile.xPos && temp.yPos === tile.yPos + 1 && temp.zPos === tile.zPos + 1);
+    var topTile3 = this.tiles.find(temp => temp.xPos === tile.xPos && temp.yPos === tile.yPos - 1 && temp.zPos === tile.zPos + 1);
+
 
     var RightTopTile1 = this.tiles.find(temp => temp.xPos === tile.xPos + 1 && temp.yPos === tile.yPos + 1 && temp.zPos === tile.zPos + 1);
     var RightTopTile2 = this.tiles.find(temp => temp.xPos === tile.xPos + 1 && temp.yPos === tile.yPos - 1 && temp.zPos === tile.zPos + 1);
@@ -63,7 +80,7 @@ export class GameBoardService {
     var LeftTopTile3 = this.tiles.find(temp => temp.xPos === tile.xPos - 1 && temp.yPos === tile.yPos && temp.zPos === tile.zPos + 1);
 
 
-    return topTile1 === undefined && RightTopTile1 === undefined && RightTopTile2 === undefined && RightTopTile3 === undefined && LeftTopTile1 === undefined && LeftTopTile2 === undefined && LeftTopTile3 === undefined;
+    return topTile1 === undefined && topTile2 === undefined && topTile3 === undefined && RightTopTile1 === undefined && RightTopTile2 === undefined && RightTopTile3 === undefined && LeftTopTile1 === undefined && LeftTopTile2 === undefined && LeftTopTile3 === undefined;
   }
 
   isNotSurroundedAtRightSide(tile: Tile) : boolean {
@@ -92,7 +109,11 @@ export class GameBoardService {
 
     if(this.selectedTile.tile.suit === tile.tile.suit && this.selectedTile.tile.name === tile.tile.name){
 
+      //this.tileService.matchTiles(this.selectedTile._id, tile._id).subscribe();
+
       console.log("match!!");
+      this.matchTiles(this.selectedTile._id, tile._id).subscribe();
+
       this.deleteTile(this.selectedTile);
       this.deleteTile(tile);
 
@@ -114,5 +135,29 @@ export class GameBoardService {
 
     deleteTileFromList(tile) {
       this.tiles = this.tiles.filter(obj => obj !== tile);
+    }
+
+    matchTiles(tileID1: number, tileID2: number): Observable<Tile>{
+    let headers = new Headers({
+        'Content-Type': 'application/json',
+        'x-username': this.authService.username,
+        'x-token': this.authService.token,
+    });
+
+    let options = new RequestOptions({ headers: headers });
+
+    return this.http.post(`${this.apiUrl}/games/${this.gameID}/tiles/matches`,
+        {
+            tile1Id: tileID1,
+            tile2Id: tileID2,
+        }, options)
+        .map(this.extractData);
+    }
+
+
+    private extractData(res: Response) {
+        console.log(res);
+        let body = res.json();
+        return body || {};
     }
 }
