@@ -17,7 +17,6 @@ import { GameInfoComponent } from './game-info/game-info.component';
 @NgModule({
     declarations: [
         PlayGameComponent,
-
         TileComponent,
         TemplateTileComponent,
         TemplateGameBoardComponent,
