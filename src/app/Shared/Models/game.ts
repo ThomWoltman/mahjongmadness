@@ -3,6 +3,8 @@ import { Template } from 'app/browse/Models/template';
 
 export class Game {
     _id: string;
+    id: string;
+
     createdBy: User;
     createdOn: string;
     gameTemplate: Template;
@@ -12,5 +14,4 @@ export class Game {
     maxPlayers: number;
     minPlayers: number;
     state: string;
-    id: string;
 }

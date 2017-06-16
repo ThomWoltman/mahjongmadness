@@ -16,6 +16,7 @@ import { GameBoardService } from '../../services/game-board.service';
 export class PlayGameComponent {
     id:number;
     tiles : Tile[];
+
     busy: Subscription;
 
     constructor(private route: ActivatedRoute,private tileService: TileService, private gameBoardService : GameBoardService) {

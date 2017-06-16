@@ -11,6 +11,7 @@ import { TemplateTileComponent } from "./template-tile/template-tile.component";
 import { TemplateGameBoardComponent } from "./template-game-board/template-game-board.component";
 
 import { GameBoardService } from '../services/game-board.service';
+import { GameInfoComponent } from './game-info/game-info.component';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { GameBoardService } from '../services/game-board.service';
         TileComponent,
         TemplateTileComponent,
         TemplateGameBoardComponent,
+        GameInfoComponent,
     ],
     imports: [
         MajesticSharedModule,
