@@ -16,12 +16,18 @@
             <button md-button (click)="changePage(1)">2</button>
             <button md-button (click)="changePage(2)">3</button>
             <button md-button (click)="changePage(3)">4</button>
-            <button md-button (click)="changePage(4)">5</button>
+            <button md-button (click)="changePage(5)">5</button>
+            <button md-button (click)="changePage(6)">6</button>
+            <button md-button (click)="changePage(7)">7</button>
+            <button md-button (click)="changePage(8)">8</button>
+            <button md-button (click)="changePage(9)">9</button>
+            <button md-button (click)="changePage(10)">10</button>
         </div>
     </div>
 
     <div *ngIf="selectedGame" class="gameInfo">
         <h2>{{selectedGame.createdBy.name}}'s Game</h2>
+        {{selectedGame.state}}
         <md-nav-list>
             <h3 md-subheader>Players (max {{selectedGame.maxPlayers}})</h3>
             <md-list-item *ngFor="let player of selectedGame.players">

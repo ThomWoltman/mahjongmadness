@@ -1,9 +1,13 @@
-<h2>Watch Games</h2>
 
-<md-nav-list [ngBusy]="busy">
-    <h3 md-subheader>Playing</h3>
-    <md-list-item *ngFor="let game of games">
-        <a md-line href="#">{{ game.createdBy.name }}</a>
-        <button md-raised-button>Watch</button>
-    </md-list-item>
-</md-nav-list>
+<app-game-info [players]="players"></app-game-info>
+<h2>Match History</h2>
+<div class="content">
+    <md-nav-list [ngBusy]="busy">
+        <a md-list-item *ngFor="let game of games">
+
+            <a md-line >{{ game.createdBy.name }}</a>
+            <div md-line>{{ game._id}}</div>
+            <button md-raised-button (click)="onSelect(game)"><md-icon>info_outline</md-icon></button>
+        </a>
+    </md-nav-list>
+</div>

@@ -12,7 +12,7 @@ const routes: Routes = [
             { path: '', redirectTo: 'mygames', pathMatch: 'full' },
             { path: 'mygames', component: MyGamesComponent },
             { path: 'games', component: BrowseGamesComponent },
-            { path: 'watch', component: WatchGamesComponent },
+            { path: 'history', component: WatchGamesComponent },
             { path: ':id', loadChildren: 'app/game/components/game.module#GameModule'},
 ];
 

@@ -9,11 +9,12 @@ import { MajesticMdModule } from './majestic-md.module';
 
 import { CommonModule } from '@angular/common';
 import { HttpModule, JsonpModule } from '@angular/http';
+import { GameInfoComponent } from 'app/game/components/game-info/game-info.component';
 
 
 @NgModule({
   declarations: [
-
+    GameInfoComponent
   ],
   imports: [
     MajesticMdModule,
@@ -26,6 +27,7 @@ import { HttpModule, JsonpModule } from '@angular/http';
     CommonModule,
     HttpModule,
     JsonpModule,
+    GameInfoComponent,
   ],
   providers: [
     AuthService,

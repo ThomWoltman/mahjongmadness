@@ -20,7 +20,9 @@ export class BrowseGamesComponent {
   currentPage = 0;
 
   getGames(): void {
-    this.busy = this.gameService.getGames(this.currentPage).subscribe(games => this.games = games);
+    this.busy = this.gameService.getGames(this.currentPage).subscribe(games => {
+      this.games = games;
+    });
   }
 
   changePage(page: number): void {

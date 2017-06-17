@@ -8,6 +8,7 @@ import { AppComponent } from 'app/shell/components/app/app.component';
 import { AuthCallbackComponent } from 'app/shell/Components/callback/auth-callback.component';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { WebSocketService } from 'angular2-websocket-service';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
   exports: [
   ],
   providers: [
+    WebSocketService,
   ],
   bootstrap: [AppComponent]
 })

@@ -9,6 +9,12 @@ export class IsJoinedPipe implements PipeTransform {
 constructor(private authService: AuthService){}
 
   transform(game: Game) {
+    if(game.players.length === game.maxPlayers){
+      return true;
+    }
+    if(game.state === "playing"){
+      return true;
+    }
     return game.players.find(user => user._id == this.authService.username) != undefined;
   }
 }
