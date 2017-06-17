@@ -4,7 +4,8 @@ import { ActivatedRoute } from "@angular/router";
 import { TileService } from 'app/shared/Services/tile.service';
 import { Subscription } from "rxjs/Subscription";
 import { GameBoardService } from '../../services/game-board.service';
-
+import { Player } from "../../../Shared/Models/player";
+import { GameService } from 'app/shared/Services/game.service';
 
 
 
@@ -16,10 +17,11 @@ import { GameBoardService } from '../../services/game-board.service';
 export class PlayGameComponent {
     id: number;
     tiles: Tile[];
-
+    players: Player[];
     busy: Subscription;
+    isGameEnded: boolean;
 
-    constructor(private route: ActivatedRoute, private tileService: TileService, private gameBoardService: GameBoardService) {
+    constructor(private gameService: GameService, private route: ActivatedRoute, private tileService: TileService, private gameBoardService: GameBoardService) {
         this.route.params.subscribe(params => {
             this.id = +params['id'];
         });
@@ -30,9 +32,35 @@ export class PlayGameComponent {
 
     ngOnInit() {
         this.busy = this.tileService.getTiles(this.id).subscribe(tiles => {
+            tiles.forEach(tile => {
+                if (tile.tile.suit === "Flower") {
+                    console.log("name=" + tile.tile.name + " & suit=" + tile.tile.suit);
+                }
+            });
             this.tiles = tiles;
             this.gameBoardService.initTiles(this.tiles, this.id);
-        });
-    }
+            this.gameService.getGamePlayerInfo(this.id).subscribe(players => {
+                this.players = players;
+            });
 
+            this.gameBoardService.players$.subscribe(
+                data => {
+                    console.log("update player scores");
+                    console.log(data);
+
+                    this.players.forEach(player => {
+                        if (player._id === data[0].match.foundBy) {
+                            player.numberOfMatches++;
+                        }
+                    });
+                });
+
+            this.gameBoardService.gameEnded$.subscribe(data => {
+                console.log("game ended from play game component");
+                this.isGameEnded = true;
+            })
+        });
+
+
+    }
 }

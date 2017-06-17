@@ -29,8 +29,14 @@ export class GameBoardService {
   selectedTile: Tile;
   gameID: number;
   socket: any;
+  playerSubject = new Subject<any>();
+  gameEndedSubject = new Subject<any>();
+  // Observable string streams
+  players$ = this.playerSubject.asObservable();
+  gameEnded$ = this.gameEndedSubject.asObservable();
 
   initTiles(tiles: Tile[], gameId: number) {
+    
     this.tiles = tiles;
     this.gameID = gameId;
     this.selectedTile = undefined;
@@ -39,16 +45,24 @@ export class GameBoardService {
 
     let self = this;
     this.socket.on('match', (data) => {
-      console.log('match');
-      console.log(data);
-      console.log(self);
-      let match1 = data[0];
-      let match2 = data[1];
+      if (this.authService.username !== data[0].match.foundBy) {
+        console.log('match');
+        console.log(data);
+        console.log(self);
+        let match1 = data[0];
+        let match2 = data[1];
 
-      this.deleteTile(match1);
-      this.deleteTileFromList(match1);
-      this.deleteTile(match2);
-      this.deleteTileFromList(match2);
+        this.deleteTile(match1);
+        this.deleteTileFromList(match1);
+        this.deleteTile(match2);
+        this.deleteTileFromList(match2); 
+      }
+      this.playerSubject.next(data);
+      console.log("i found a match, socket");
+    });
+
+    this.socket.on('end', (data) => {
+      this.gameEndedSubject.next(data);
     });
   }
 
@@ -129,8 +143,13 @@ export class GameBoardService {
     if (this.selectedTile === undefined) {
       return false;
     }
+    console.log("nan");
+    console.log(isNaN(Number(this.selectedTile.tile.name)));
 
-    if (this.selectedTile.tile.suit === tile.tile.suit && this.selectedTile.tile.name === tile.tile.name) {
+    if (this.selectedTile.tile.suit === tile.tile.suit
+      && (this.selectedTile.tile.name === tile.tile.name
+        || (isNaN(Number(this.selectedTile.tile.name))
+          && isNaN(Number(tile.tile.name))))) {
 
       //this.tileService.matchTiles(this.selectedTile._id, tile._id).subscribe();
 

@@ -25,12 +25,17 @@ export class GameService {
     }
 
     getGames(page?: number, player? :string, state?: string): Observable<Game[]> {
-        return this.http.get(`${this.apiUrl}/games/`, { params: { pageSize: 10, pageIndex: page, state: state, player: player } })
+        return this.http.get(`${this.apiUrl}/games/`, { params: { pageSize: 10, pageIndex: page, state: "open", player: player } })
             .map(this.extractData);
     }
 
     getWatchGames(): Observable<Game[]> {
         return this.http.get(`${this.apiUrl}/games/`, { params: { pageSize: 10, state: "playing" } })
+            .map(this.extractData);
+    }
+
+    getMatchHistory(): Observable<Game[]> {
+        return this.http.get(`${this.apiUrl}/games`, { params : { player: this.authService.username, state: "finished"}})
             .map(this.extractData);
     }
 

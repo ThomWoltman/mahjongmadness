@@ -12,8 +12,8 @@ import {Player} from "../../../Shared/Models/player";
   styleUrls: ['./game-info.component.scss']
 })
 export class GameInfoComponent implements OnInit {
-    @Input() gameId: number;
-    players :Player[];
+    //@Input() gameId: number;
+    @Input() players :Player[];
     busy: Subscription;
 
 
@@ -23,11 +23,6 @@ export class GameInfoComponent implements OnInit {
     }
 
   ngOnInit() {
-      if(this.gameId != null){
-          this.busy =this.gameService.getGamePlayerInfo(this.gameId).subscribe(players => {
-            this.players = players;
-          });
-      }
   }
 
 }

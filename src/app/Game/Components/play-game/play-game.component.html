@@ -1,5 +1,8 @@
 <h2>Play Game</h2>
-<app-game-info [gameId]="id"></app-game-info>
+<app-game-info [players]="players"></app-game-info>
+<div *ngIf="isGameEnded">
+<h2>Game Finished!</h2>
+</div>
 <div *ngIf="tiles" class="preview-container" [ngBusy]="busy">
     <div class="game-container" style='width: 500px; height: 500px'>
             <tile *ngFor="let tile of tiles" [tile]="tile">
