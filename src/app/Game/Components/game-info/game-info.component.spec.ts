@@ -9,6 +9,13 @@ import {Subscription} from "rxjs/Subscription";
 
 import {Player} from "../../../Shared/Models/player";
 import {GameModule} from "../game.module";
+import {PlayGameComponent} from "../play-game/play-game.component";
+import {TileComponent} from "../tile/tile.component";
+import {TemplateTileComponent} from "../template-tile/template-tile.component";
+import {TemplateGameBoardComponent} from "../template-game-board/template-game-board.component";
+import {MajesticSharedModule} from "../../../Shared/Modules/majestic-shared.module";
+import {BusyModule} from "angular2-busy";
+import {MajesticMdModule} from "../../../Shared/Modules/majestic-md.module";
 
 describe('GameInfoComponent', () => {
   let component: GameInfoComponent;
@@ -17,12 +24,25 @@ describe('GameInfoComponent', () => {
     let el:      HTMLElement;
 
   beforeEach(async(() => {
-    TestBed.configureTestingModule({
-        imports:[GameModule,GameService],
+    var userServiceStub = {
+          isLoggedIn: true,
+          user: { name: 'Test User'}
+      };
 
-        declarations: [ GameInfoComponent ],
+    TestBed.configureTestingModule({
+        imports:[
+            MajesticSharedModule,
+            BusyModule,
+        ],
+
+        declarations: [
+
+            GameInfoComponent,
+
+
+        ],
         providers: [
-            { provide: ComponentFixtureAutoDetect, useValue: true }]
+            { provide: GameService, useValue: userServiceStub }]
     })
     .compileComponents();
   }));

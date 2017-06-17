@@ -30,7 +30,7 @@ import { GameInfoComponent } from './game-info/game-info.component';
 
     ],
     exports: [
-
+        PlayGameComponent,
         TileComponent,
         TemplateTileComponent,
         TemplateGameBoardComponent,
