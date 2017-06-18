@@ -17,6 +17,23 @@ button.mat-raised-button:focus {
     padding-left: 20px;
 }
 
+button#next {
+    float:right;
+}
+
+button#previous {
+    float: left;
+}
+
+div#page {
+    margin-left: 50%;
+    margin-right: 50%;
+}
+
+.pagination {
+    margin-top: 20px;
+}
+
 .content {
     display:flex;
 }

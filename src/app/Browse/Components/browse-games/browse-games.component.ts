@@ -18,15 +18,25 @@ export class BrowseGamesComponent {
   busy: Subscription;
   selectedGame: Game;
   currentPage = 0;
+  username: string;
 
   getGames(): void {
-    this.busy = this.gameService.getGames(this.currentPage).subscribe(games => {
+    this.busy = this.gameService.getGames(this.currentPage, this.username).subscribe(games => {
       this.games = games;
     });
   }
 
-  changePage(page: number): void {
-    this.currentPage = page;
+  searchGameByUserName(): void {
+    this.currentPage = 0;
+    this.getGames();
+    // this.busy = this.gameService.getGames(this.currentPage, this.username).subscribe(games => {
+    //   this.games = games;
+    // });
+  }
+
+  changePage(page: number): void { 
+    this.currentPage += page;
+    console.log(this.currentPage);
     this.getGames();
   }
 

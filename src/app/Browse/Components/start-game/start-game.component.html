@@ -3,6 +3,8 @@
         <h2>Create Game</h2>
     </md-card-title>
 
+
+
     <md-select placeholder="Select a Template" [(ngModel)]="selectedTemplate" name="templates">
         <md-option *ngFor="let template of templates" [value]="template">
             {{template.id}}
@@ -23,7 +25,15 @@
     <button md-button (click)="startGame()" class="create">
         <md-icon>done</md-icon>
     </button>
+    <md-chip-list>
+        <md-chip *ngIf="error" selected="true" color="warn">
+            {{error}}
+        </md-chip>
+        <md-chip *ngIf="msg" selected="true" color="primary">
+            {{msg}}
+        </md-chip>
+    </md-chip-list>
 
 
-<template-game-board *ngIf="selectedTemplate" [tiles]="selectedTemplate.tiles"></template-game-board>
+    <template-game-board *ngIf="selectedTemplate" [tiles]="selectedTemplate.tiles"></template-game-board>
 </md-card>

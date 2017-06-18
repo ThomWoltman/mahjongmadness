@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import {MdButtonModule, MdCheckboxModule, MdCardModule, MdListModule, MdCoreModule, MdToolbarModule, MdIconModule, MdTabsModule, MdInputModule, MdSelectModule} from '@angular/material';
+import {MdChipsModule, MdButtonModule, MdCheckboxModule, MdCardModule, MdListModule, MdCoreModule, MdToolbarModule, MdIconModule, MdTabsModule, MdInputModule, MdSelectModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -16,6 +16,7 @@ import {MdButtonModule, MdCheckboxModule, MdCardModule, MdListModule, MdCoreModu
     MdInputModule,
     MdSelectModule,
     MdCoreModule,
+    MdChipsModule,
   ],
   exports: [
     MdButtonModule, 
@@ -28,6 +29,7 @@ import {MdButtonModule, MdCheckboxModule, MdCardModule, MdListModule, MdCoreModu
     MdInputModule,
     MdSelectModule,
     MdCoreModule,
+    MdChipsModule,
   ],
 })
 export class MajesticMdModule { }

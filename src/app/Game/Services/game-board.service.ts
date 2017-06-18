@@ -36,7 +36,8 @@ export class GameBoardService {
   gameEnded$ = this.gameEndedSubject.asObservable();
 
   initTiles(tiles: Tile[], gameId: number) {
-    
+    this.playerSubject = new Subject<any>();
+    this.players$ = this.playerSubject.asObservable();
     this.tiles = tiles;
     this.gameID = gameId;
     this.selectedTile = undefined;

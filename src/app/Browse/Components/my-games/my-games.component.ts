@@ -13,7 +13,6 @@ export class MyGamesComponent {
 
     games : Game[];
     busy: Subscription;
-    selectedGame: Game;
 
     getMyGames(): void {
         this.busy = this.gameService.getMyGames().subscribe(games => {

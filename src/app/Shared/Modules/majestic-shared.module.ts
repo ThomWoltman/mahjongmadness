@@ -11,10 +11,9 @@ import { CommonModule } from '@angular/common';
 import { HttpModule, JsonpModule } from '@angular/http';
 import { GameInfoComponent } from 'app/game/components/game-info/game-info.component';
 
-
 @NgModule({
   declarations: [
-    GameInfoComponent
+    GameInfoComponent,
   ],
   imports: [
     MajesticMdModule,

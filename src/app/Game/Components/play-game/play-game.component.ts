@@ -20,6 +20,7 @@ export class PlayGameComponent {
     players: Player[];
     busy: Subscription;
     isGameEnded: boolean;
+    data: any;
 
     constructor(private gameService: GameService, private route: ActivatedRoute, private tileService: TileService, private gameBoardService: GameBoardService) {
         this.route.params.subscribe(params => {
@@ -43,24 +44,26 @@ export class PlayGameComponent {
                 this.players = players;
             });
 
+
             this.gameBoardService.players$.subscribe(
                 data => {
-                    console.log("update player scores");
-                    console.log(data);
-
-                    this.players.forEach(player => {
-                        if (player._id === data[0].match.foundBy) {
-                            player.numberOfMatches++;
-                        }
-                    });
+                    if(data[0]._id !== this.data){
+                        this.data = data[0]._id;
+                        this.players.forEach(player => {
+                            if (player._id === data[0].match.foundBy) {
+                                player.numberOfMatches++;
+                            }
+                        });
+                    }
                 });
-
-            this.gameBoardService.gameEnded$.subscribe(data => {
-                console.log("game ended from play game component");
-                this.isGameEnded = true;
+                    
+                        
+                        this.gameBoardService.gameEnded$.subscribe(data => {
+                        console.log("game ended from play game component");
+                        this.isGameEnded = true;
             })
         });
-
+        
 
     }
 }

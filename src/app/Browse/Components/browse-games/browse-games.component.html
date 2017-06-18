@@ -1,6 +1,13 @@
 <h2>All Games</h2>
-
+<div>
+    
+    <md-input-container class="example-full-width">
+        <input type="text" name="MaxPlayers" [(ngModel)]="username" mdInput placeholder="Search username">
+    </md-input-container>
+    <button md-raised-button (click)="searchGameByUserName()"><md-icon>done</md-icon></button>
+</div>
 <div class="content">
+
 
     <div class="list">
         <md-nav-list [ngBusy]="busy">
@@ -12,7 +19,13 @@
         </md-nav-list>
 
         <div class="pagination">
-            <button md-button (click)="changePage(0)">1</button>
+            <div id="page"><b>{{currentPage+1}}</b></div>
+            <button md-raised-button (click)="changePage(-1)" *ngIf="currentPage > 0" id="previous"><md-icon>keyboard_arrow_left</md-icon></button>
+            
+            <button md-raised-button (click)="changePage(1)" id="next"><md-icon>keyboard_arrow_right</md-icon></button>
+
+
+            <!--<button md-button (click)="changePage(0)">1</button>
             <button md-button (click)="changePage(1)">2</button>
             <button md-button (click)="changePage(2)">3</button>
             <button md-button (click)="changePage(3)">4</button>
@@ -21,9 +34,11 @@
             <button md-button (click)="changePage(7)">7</button>
             <button md-button (click)="changePage(8)">8</button>
             <button md-button (click)="changePage(9)">9</button>
-            <button md-button (click)="changePage(10)">10</button>
+            <button md-button (click)="changePage(10)">10</button>-->
         </div>
     </div>
+
+    <!--<info [selectedGame]="selectedGame"></info>-->
 
     <div *ngIf="selectedGame" class="gameInfo">
         <h2>{{selectedGame.createdBy.name}}'s Game</h2>
