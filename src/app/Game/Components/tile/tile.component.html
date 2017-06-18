@@ -1,6 +1,6 @@
 <!--<div (click)="showTile($event)" id="tile" [style.left.px]=tile.xPos*38+50 [style.top.px]=tile.yPos*51 [style.z-index]=tile.zPos class="{{class}}-{{number}}">
     <div id="{{class}}-{{number}}-{{tile._id}}"></div>-->
 
-<div (click)="showTile($event)" id="{{tile._id}}" [style.left.px]=tile.xPos*19+50 [style.top.px]=tile.yPos*25.5 [style.z-index]=tile.zPos class="{{suit}}-{{name}}">
+<div *ngIf="tile" (click)="showTile($event)" id="{{tile._id}}" [style.left.px]=tile.xPos*19+50 [style.top.px]=tile.yPos*25.5 [style.z-index]=tile.zPos class="{{suit}}-{{name}}">
     <div id="{{suit}}-{{name}}-{{tile._id}}" class="tile"></div>
 </div>

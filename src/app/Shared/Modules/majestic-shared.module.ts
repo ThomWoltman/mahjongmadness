@@ -13,7 +13,7 @@ import { GameInfoComponent } from 'app/game/components/game-info/game-info.compo
 
 @NgModule({
   declarations: [
-    GameInfoComponent,
+
   ],
   imports: [
     MajesticMdModule,
@@ -26,7 +26,7 @@ import { GameInfoComponent } from 'app/game/components/game-info/game-info.compo
     CommonModule,
     HttpModule,
     JsonpModule,
-    GameInfoComponent,
+
   ],
   providers: [
     AuthService,

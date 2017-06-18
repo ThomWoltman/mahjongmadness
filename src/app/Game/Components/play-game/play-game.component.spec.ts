@@ -43,11 +43,12 @@ describe('PlayGameComponent', () => {
             declarations: [
                 PlayGameComponent,
                 GameInfoComponent,
-                TileComponent
+                TileComponent,
+
 
             ],
             providers: [
-                { provide: ActivatedRoute, useValue: userServiceStub },{ provide: GameBoardService, useValue: userServiceStub },{ provide: TileService, useValue: userServiceStub } , { provide: GameService, useValue: userServiceStub }]
+                { provide: ActivatedRoute, useValue: userServiceStub },{ provide: GameBoardService, useValue: userServiceStub },{ provide: TileService, useClass: TileService } , { provide: GameService, useValue: userServiceStub }]
 
         })
             .compileComponents();

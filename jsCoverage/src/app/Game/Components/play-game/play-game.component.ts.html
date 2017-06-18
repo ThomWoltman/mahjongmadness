@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for src/app/Game/Components/play-game/play-game.component.ts</title>
+    <title>Code coverage report for src/app/game/components/play-game/play-game.component.ts</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="..\..\..\..\..\prettify.css" />
     <link rel="stylesheet" href="..\..\..\..\..\base.css" />
@@ -16,28 +16,28 @@
 <div class='wrapper'>
   <div class='pad1'>
     <h1>
-      <a href="..\..\..\..\..\index.html">All files</a> / <a href="index.html">src/app/Game/Components/play-game</a> play-game.component.ts
+      <a href="..\..\..\..\..\index.html">All files</a> / <a href="index.html">src/app/game/components/play-game</a> play-game.component.ts
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">42.86% </span>
+        <span class="strong">27.03% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>9/21</span>
+        <span class='fraction'>10/37</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">76.92% </span>
+        <span class="strong">58.33% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>10/13</span>
+        <span class='fraction'>14/24</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">20% </span>
+        <span class="strong">10% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>1/5</span>
+        <span class='fraction'>1/10</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">46.67% </span>
+        <span class="strong">26.67% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>7/15</span>
+        <span class='fraction'>8/30</span>
       </div>
     </div>
   </div>
@@ -81,13 +81,45 @@
 36
 37
 38
-39</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -102,6 +134,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -115,47 +149,106 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Component, Input } from '@angular/core';
-import {Tile} from "../../Models/tile";
-import {ActivatedRoute} from "@angular/router";
+import { Tile } from "../../Models/tile";
+import { ActivatedRoute } from "@angular/router";
 import { TileService } from 'app/shared/Services/tile.service';
-import {Subscription} from "rxjs/Subscription";
+import { Subscription } from "rxjs/Subscription";
 import { GameBoardService } from '../../services/game-board.service';
-&nbsp;
+import { Player } from "../../../Shared/Models/player";
+import { GameService } from 'app/shared/Services/game.service';
 &nbsp;
 &nbsp;
 &nbsp;
 @Component({
-  selector: 'play-game',
-  templateUrl: './play-game.component.html',
-  styleUrls: ['./play-game.component.scss']
+    selector: 'play-game',
+    templateUrl: './play-game.component.html',
+    styleUrls: ['./play-game.component.scss']
 })
 export class PlayGameComponent {
-    id:number;
-    tiles : Tile[];
-&nbsp;
+    id: number;
+    tiles: Tile[];
+    players: Player[];
     busy: Subscription;
+    isGameEnded: boolean;
+    data: any;
 &nbsp;
-<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >    constructor(private <span class="cstat-no" title="statement not covered" ></span>route: ActivatedRoute<span class="branch-1 cbranch-no" title="branch not covered" >,</span>private <span class="cstat-no" title="statement not covered" >tileService: </span>TileService<span class="branch-2 cbranch-no" title="branch not covered" >,</span> private <span class="cstat-no" title="statement not covered" >gameBoardService : </span>GameBoardService<span class="branch-2 cbranch-no" title="branch not covered" >)</span> {</span></span>
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >    constructor(private <span class="cstat-no" title="statement not covered" ></span>gameService: GameService<span class="branch-1 cbranch-no" title="branch not covered" >,</span> private <span class="cstat-no" title="statement not covered" >route: </span>ActivatedRoute<span class="branch-2 cbranch-no" title="branch not covered" >,</span> private <span class="cstat-no" title="statement not covered" >tileService: </span>TileService<span class="branch-2 cbranch-no" title="branch not covered" >,</span> private <span class="cstat-no" title="statement not covered" >gameBoardService: </span>GameBoardService<span class="branch-2 cbranch-no" title="branch not covered" >)</span> {</span></span>
 <span class="cstat-no" title="statement not covered" >        this.route.params.subscribe(<span class="fstat-no" title="function not covered" ></span>params =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >            this.id = +params['id'];</span>
         });
 <span class="cstat-no" title="statement not covered" >        this.id = route.snapshot.params['id'];</span>
         //this.tileService.setID(this.id);
-<span class="cstat-no" title="statement not covered" >        console.log("playGame: "+this.id);</span>
+<span class="cstat-no" title="statement not covered" >        console.log("playGame: " + this.id);</span>
     }
 &nbsp;
 <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >    ngOnInit() {</span></span>
 <span class="cstat-no" title="statement not covered" >        this.busy = this.tileService.getTiles(this.id).subscribe(<span class="fstat-no" title="function not covered" ></span>tiles =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >        this.tiles = tiles;</span>
-<span class="cstat-no" title="statement not covered" >        this.gameBoardService.initTiles(this.tiles, this.id);</span>
-    });     
-  }
+<span class="cstat-no" title="statement not covered" >            tiles.forEach(<span class="fstat-no" title="function not covered" ></span>tile =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >                if (tile.tile.suit === "Flower") {</span>
+<span class="cstat-no" title="statement not covered" >                    console.log("name=" + tile.tile.name + " &amp; suit=" + tile.tile.suit);</span>
+                }
+            });
+<span class="cstat-no" title="statement not covered" >            this.tiles = tiles;</span>
+<span class="cstat-no" title="statement not covered" >            this.gameBoardService.initTiles(this.tiles, this.id);</span>
+<span class="cstat-no" title="statement not covered" >            this.gameService.getGamePlayerInfo(this.id).subscribe(<span class="fstat-no" title="function not covered" ></span>players =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >                this.players = players;</span>
+            });
 &nbsp;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            this.gameBoardService.players$.subscribe(</span>
+<span class="fstat-no" title="function not covered" ></span>                data =&gt; {
+<span class="cstat-no" title="statement not covered" >                    if(data[0]._id !== this.data){</span>
+<span class="cstat-no" title="statement not covered" >                        this.data = data[0]._id;</span>
+<span class="cstat-no" title="statement not covered" >                        this.players.forEach(<span class="fstat-no" title="function not covered" ></span>player =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >                            if (player._id === data[0].match.foundBy) {</span>
+<span class="cstat-no" title="statement not covered" >                                player.numberOfMatches++;</span>
+                            }
+                        });
+                    }
+                });
+                    
+                        
+<span class="cstat-no" title="statement not covered" >                        this.gameBoardService.gameEnded$.subscribe(<span class="fstat-no" title="function not covered" ></span>data =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >                        console.log("game ended from play game component");</span>
+<span class="cstat-no" title="statement not covered" >                        this.isGameEnded = true;</span>
+            })
+        });
+        
+&nbsp;
+    }
 }
 &nbsp;</pre></td></tr>
 </table></pre>
@@ -163,7 +256,7 @@ export class PlayGameComponent {
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sat Jun 17 2017 14:12:38 GMT+0200 (West-Europa (zomertijd))
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sun Jun 18 2017 22:31:44 GMT+0200 (West-Europa (zomertijd))
 </div>
 </div>
 <script src="..\..\..\..\..\prettify.js"></script>

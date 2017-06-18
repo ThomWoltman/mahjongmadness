@@ -41,7 +41,7 @@ describe('GameInfoComponent', () => {
         ],
 
         providers: [
-            { provide: GameService, useValue: userServiceStub }]
+            ]
     })
     .compileComponents();
   }));

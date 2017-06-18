@@ -18,7 +18,7 @@ export class GameInfoComponent implements OnInit {
 
 
 
-    constructor(private gameService: GameService) {
+    constructor() {
 
     }
 

@@ -19,6 +19,7 @@ import {FormsModule} from "@angular/forms";
 import { GameBoardService } from '../../services/game-board.service';
 import {APP_BASE_HREF} from "@angular/common";
 import {AuthService} from "../../../Shared/Services/auth.service";
+import {AuthCallbackComponent} from "../../../Shell/Components/Callback/auth-callback.component";
 
 describe('TileComponent', () => {
     let component: TileComponent;
@@ -34,13 +35,15 @@ describe('TileComponent', () => {
         TestBed.configureTestingModule({
             imports:[
                 MajesticSharedModule,
+                FormsModule
 
             ],
 
             declarations: [
                 TileComponent,
+                AuthCallbackComponent
             ],
-            providers: [{provide: GameBoardService, useClass : GameBoardService},{provide: AuthService, useValue : {username:"Gebruiker"}}]
+            providers: [{provide: GameBoardService, useValue : {username:"Gebruiker"}}]
 
         })
             .compileComponents();
@@ -54,6 +57,18 @@ describe('TileComponent', () => {
     });
 
     it('should create', () => {
+        expect(component).toBeTruthy();
+    });
+    it('show tile ', () => {
+        component.showTile(event);
+        expect(component).toBeTruthy();
+    });
+    it('iselected tile ', () => {
+        component.isSelected;
+        expect(component).toBeTruthy();
+    });
+    it('not selecte tile ', () => {
+        component.unSelectTile();
         expect(component).toBeTruthy();
     });
 });

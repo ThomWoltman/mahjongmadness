@@ -15,21 +15,24 @@ import {AuthCallbackComponent} from "../Callback/auth-callback.component";
 import {AppModule} from "../../../app.module";
 import {APP_BASE_HREF} from "@angular/common";
 import {AuthService} from "../../../Shared/Services/auth.service";
+import {MdIconModule} from "@angular/material";
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
 
     TestBed.configureTestingModule({
         imports:[
-            MajesticSharedModule,
             AppRoutingModule,
-            AppModule
+            AppModule,
+            MdIconModule
+
 
         ],
 
         declarations: [
             AppComponent,
             AuthCallbackComponent
+
         ],
         providers: [{provide: APP_BASE_HREF, useValue : '/'},{provide: AuthService, useValue : {username:"Gebruiker"}}]
 

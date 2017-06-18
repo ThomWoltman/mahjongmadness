@@ -11,6 +11,7 @@ import { TemplateTileComponent } from "./template-tile/template-tile.component";
 import { TemplateGameBoardComponent } from "./template-game-board/template-game-board.component";
 
 import { GameBoardService } from '../services/game-board.service';
+import {TileService} from "../../Shared/Services/tile.service";
 // import { GameInfoComponent } from './game-info/game-info.component';
 
 
@@ -37,6 +38,7 @@ import { GameBoardService } from '../services/game-board.service';
     ],
     providers: [
         GameBoardService,
+
     ]
 })
 export class GameModule { }

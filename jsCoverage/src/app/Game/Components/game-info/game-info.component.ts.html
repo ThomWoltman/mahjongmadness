@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for src/app/Game/Components/game-info/game-info.component.ts</title>
+    <title>Code coverage report for src/app/game/components/game-info/game-info.component.ts</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="..\..\..\..\..\prettify.css" />
     <link rel="stylesheet" href="..\..\..\..\..\base.css" />
@@ -16,28 +16,28 @@
 <div class='wrapper'>
   <div class='pad1'>
     <h1>
-      <a href="..\..\..\..\..\index.html">All files</a> / <a href="index.html">src/app/Game/Components/game-info</a> game-info.component.ts
+      <a href="..\..\..\..\..\index.html">All files</a> / <a href="index.html">src/app/game/components/game-info</a> game-info.component.ts
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">84.62% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>11/13</span>
+        <span class='fraction'>7/7</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">60% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>3/5</span>
+        <span class='fraction'>0/0</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">75% </span>
+        <span class="strong">33.33% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>3/4</span>
+        <span class='fraction'>1/3</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">80% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>8/10</span>
+        <span class='fraction'>5/5</span>
       </div>
     </div>
   </div>
@@ -71,13 +71,8 @@
 26
 27
 28
-29
-30
-31
-32
-33
-34</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+29</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -90,22 +85,17 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
@@ -123,22 +113,17 @@ import {Player} from "../../../Shared/Models/player";
   styleUrls: ['./game-info.component.scss']
 })
 export class GameInfoComponent implements OnInit {
-    @Input() gameId: number;
-    players :Player[];
+    //@Input() gameId: number;
+    @Input() players :Player[];
     busy: Subscription;
 &nbsp;
 &nbsp;
 &nbsp;
-    constructor(private gameService: GameService<span class="branch-1 cbranch-no" title="branch not covered" >) {</span>
+<span class="fstat-no" title="function not covered" >    constructor() {</span>
 &nbsp;
     }
 &nbsp;
-  ngOnInit() {
-      <span class="missing-if-branch" title="if path not taken" >I</span>if(this.gameId != null){
-<span class="cstat-no" title="statement not covered" >          this.busy =this.gameService.getGamePlayerInfo(this.gameId).subscribe(<span class="fstat-no" title="function not covered" ></span>players =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >            this.players = players;</span>
-          });
-      }
+<span class="fstat-no" title="function not covered" >  ngOnInit() {</span>
   }
 &nbsp;
 }
@@ -148,7 +133,7 @@ export class GameInfoComponent implements OnInit {
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sat Jun 17 2017 14:12:38 GMT+0200 (West-Europa (zomertijd))
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sun Jun 18 2017 22:31:44 GMT+0200 (West-Europa (zomertijd))
 </div>
 </div>
 <script src="..\..\..\..\..\prettify.js"></script>
