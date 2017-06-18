@@ -29,7 +29,7 @@ import { GameBoardService } from '../services/game-board.service';
 
     ],
     exports: [
-
+        PlayGameComponent,
         TileComponent,
         TemplateTileComponent,
         TemplateGameBoardComponent,

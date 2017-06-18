@@ -1,0 +1,551 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/app/Game/services/game-board.service.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="..\..\..\..\prettify.css" />
+    <link rel="stylesheet" href="..\..\..\..\base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(..\..\..\..\sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="..\..\..\..\index.html">All files</a> / <a href="index.html">src/app/Game/services</a> game-board.service.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">23.71% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>23/97</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">6.9% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>6/87</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">3.23% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>1/31</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">26.92% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>21/78</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">import { Injectable } from '@angular/core';
+import { Tile } from '../models/tile';
+import { isNullOrUndefined, isUndefined } from "util";
+&nbsp;
+import { TileComponent } from "../Components/tile/tile.component";
+&nbsp;
+import { Http, Response } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/map';
+&nbsp;
+import { Headers, RequestOptions } from '@angular/http';
+import { AuthService } from 'app/shared/Services/auth.service';
+&nbsp;
+//import { TileService } from "app/shared/services/tile.service";
+&nbsp;
+@Injectable()
+export class GameBoardService {
+<span class="fstat-no" title="function not covered" >  constructor(private <span class="cstat-no" title="statement not covered" ></span>http: Http<span class="branch-1 cbranch-no" title="branch not covered" >,</span> private <span class="cstat-no" title="statement not covered" >authService: </span>AuthService<span class="branch-2 cbranch-no" title="branch not covered" >)</span> { }</span>
+&nbsp;
+  private <span class="cstat-no" title="statement not covered" >apiUrl = "http://mahjongmayhem.herokuapp.com";</span>
+  tiles: Tile[];
+  selectedTile: Tile;
+  gameID: number;
+&nbsp;
+<span class="fstat-no" title="function not covered" >  initTiles(</span>tiles: Tile[], gameId: number) {
+<span class="cstat-no" title="statement not covered" >    this.tiles = tiles;</span>
+<span class="cstat-no" title="statement not covered" >    this.gameID = gameId;</span>
+<span class="cstat-no" title="statement not covered" >    this.selectedTile = undefined;</span>
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  tileClicked(</span>tile: Tile) : boolean {
+    var canSelect = <span class="cstat-no" title="statement not covered" >this.selectedTile === undefined;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if(this.selectedTile !== tile){</span>
+    //check if matched
+<span class="cstat-no" title="statement not covered" >      if (this.isNotSurrounded(tile)) {</span>
+        var isMatch = <span class="cstat-no" title="statement not covered" >this.tileMatch(tile);</span>
+<span class="cstat-no" title="statement not covered" >        if(canSelect){</span>
+<span class="cstat-no" title="statement not covered" >          this.selectedTile = tile;</span>
+        }
+      }
+      else{
+<span class="cstat-no" title="statement not covered" >        canSelect = false;</span>
+      }       
+    }
+    else{
+<span class="cstat-no" title="statement not covered" >      canSelect = false;</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    return canSelect;</span>
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  tileUnclicked(</span>tile: Tile) {
+<span class="cstat-no" title="statement not covered" >    if (tile === this.selectedTile) {</span>
+<span class="cstat-no" title="statement not covered" >      this.selectedTile = undefined;</span>
+    }
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  isSelectAble(</span>tile: Tile): boolean {
+<span class="cstat-no" title="statement not covered" >    return this.isNotSurrounded(tile);</span>
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  isNotSurrounded(</span>tile) : boolean {
+<span class="cstat-no" title="statement not covered" >    return this.hasNoTileOnTop(tile) &amp;&amp; (this.isNotSurroundedAtRightSide(tile) || this.isNotSurroundedAtLeftSide(tile));</span>
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  hasNoTileOnTop(</span>tile) : boolean {
+    var topTile1 = <span class="cstat-no" title="statement not covered" >this.tiles.find(<span class="fstat-no" title="function not covered" ></span>temp =&gt; <span class="cstat-no" title="statement not covered" >temp.xPos === tile.xPos &amp;&amp; temp.yPos === tile.yPos &amp;&amp; temp.zPos === tile.zPos + 1)</span>;</span>
+    var topTile2 = <span class="cstat-no" title="statement not covered" >this.tiles.find(<span class="fstat-no" title="function not covered" ></span>temp =&gt; <span class="cstat-no" title="statement not covered" >temp.xPos === tile.xPos &amp;&amp; temp.yPos === tile.yPos + 1 &amp;&amp; temp.zPos === tile.zPos + 1)</span>;</span>
+    var topTile3 = <span class="cstat-no" title="statement not covered" >this.tiles.find(<span class="fstat-no" title="function not covered" ></span>temp =&gt; <span class="cstat-no" title="statement not covered" >temp.xPos === tile.xPos &amp;&amp; temp.yPos === tile.yPos - 1 &amp;&amp; temp.zPos === tile.zPos + 1)</span>;</span>
+&nbsp;
+&nbsp;
+    var RightTopTile1 = <span class="cstat-no" title="statement not covered" >this.tiles.find(<span class="fstat-no" title="function not covered" ></span>temp =&gt; <span class="cstat-no" title="statement not covered" >temp.xPos === tile.xPos + 1 &amp;&amp; temp.yPos === tile.yPos + 1 &amp;&amp; temp.zPos === tile.zPos + 1)</span>;</span>
+    var RightTopTile2 = <span class="cstat-no" title="statement not covered" >this.tiles.find(<span class="fstat-no" title="function not covered" ></span>temp =&gt; <span class="cstat-no" title="statement not covered" >temp.xPos === tile.xPos + 1 &amp;&amp; temp.yPos === tile.yPos - 1 &amp;&amp; temp.zPos === tile.zPos + 1)</span>;</span>
+    var RightTopTile3 = <span class="cstat-no" title="statement not covered" >this.tiles.find(<span class="fstat-no" title="function not covered" ></span>temp =&gt; <span class="cstat-no" title="statement not covered" >temp.xPos === tile.xPos + 1 &amp;&amp; temp.yPos === tile.yPos &amp;&amp; temp.zPos === tile.zPos + 1)</span>;</span>
+&nbsp;
+    var LeftTopTile1 = <span class="cstat-no" title="statement not covered" >this.tiles.find(<span class="fstat-no" title="function not covered" ></span>temp =&gt; <span class="cstat-no" title="statement not covered" >temp.xPos === tile.xPos - 1 &amp;&amp; temp.yPos === tile.yPos + 1 &amp;&amp; temp.zPos === tile.zPos + 1)</span>;</span>
+    var LeftTopTile2 = <span class="cstat-no" title="statement not covered" >this.tiles.find(<span class="fstat-no" title="function not covered" ></span>temp =&gt; <span class="cstat-no" title="statement not covered" >temp.xPos === tile.xPos - 1 &amp;&amp; temp.yPos === tile.yPos - 1 &amp;&amp; temp.zPos === tile.zPos + 1)</span>;</span>
+    var LeftTopTile3 = <span class="cstat-no" title="statement not covered" >this.tiles.find(<span class="fstat-no" title="function not covered" ></span>temp =&gt; <span class="cstat-no" title="statement not covered" >temp.xPos === tile.xPos - 1 &amp;&amp; temp.yPos === tile.yPos &amp;&amp; temp.zPos === tile.zPos + 1)</span>;</span>
+&nbsp;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    return topTile1 === undefined &amp;&amp; topTile2 === undefined &amp;&amp; topTile3 === undefined &amp;&amp; RightTopTile1 === undefined &amp;&amp; RightTopTile2 === undefined &amp;&amp; RightTopTile3 === undefined &amp;&amp; LeftTopTile1 === undefined &amp;&amp; LeftTopTile2 === undefined &amp;&amp; LeftTopTile3 === undefined;</span>
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  isNotSurroundedAtRightSide(</span>tile: Tile) : boolean {
+    //check if there is a tile on the left and right.
+    var rightTile1 = <span class="cstat-no" title="statement not covered" >this.tiles.find(<span class="fstat-no" title="function not covered" ></span>temp =&gt; <span class="cstat-no" title="statement not covered" >temp.xPos === tile.xPos + 2 &amp;&amp; temp.yPos === tile.yPos &amp;&amp; temp.zPos === tile.zPos)</span>;</span>
+    var rightTile2 = <span class="cstat-no" title="statement not covered" >this.tiles.find(<span class="fstat-no" title="function not covered" ></span>temp =&gt; <span class="cstat-no" title="statement not covered" >temp.xPos === tile.xPos + 2 &amp;&amp; temp.yPos === tile.yPos - 1 &amp;&amp; temp.zPos === tile.zPos)</span>;</span>
+    var rightTile3 = <span class="cstat-no" title="statement not covered" >this.tiles.find(<span class="fstat-no" title="function not covered" ></span>temp =&gt; <span class="cstat-no" title="statement not covered" >temp.xPos === tile.xPos + 2 &amp;&amp; temp.yPos === tile.yPos + 1 &amp;&amp; temp.zPos === tile.zPos)</span>;</span>
+&nbsp;
+&nbsp;
+    //if no tile left OR right it is not surrounded
+<span class="cstat-no" title="statement not covered" >    return rightTile1 === undefined &amp;&amp; rightTile2 === undefined &amp;&amp; rightTile3 === undefined;</span>
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  isNotSurroundedAtLeftSide(</span>tile: Tile) : boolean {
+    var leftTile1 = <span class="cstat-no" title="statement not covered" >this.tiles.find(<span class="fstat-no" title="function not covered" ></span>temp =&gt; <span class="cstat-no" title="statement not covered" >temp.xPos === tile.xPos - 2 &amp;&amp; temp.yPos === tile.yPos &amp;&amp; temp.zPos === tile.zPos)</span>;</span>
+    var leftTile2 = <span class="cstat-no" title="statement not covered" >this.tiles.find(<span class="fstat-no" title="function not covered" ></span>temp =&gt; <span class="cstat-no" title="statement not covered" >temp.xPos === tile.xPos - 2 &amp;&amp; temp.yPos === tile.yPos - 1 &amp;&amp; temp.zPos === tile.zPos)</span>;</span>
+    var leftTile3 = <span class="cstat-no" title="statement not covered" >this.tiles.find(<span class="fstat-no" title="function not covered" ></span>temp =&gt; <span class="cstat-no" title="statement not covered" >temp.xPos === tile.xPos - 2 &amp;&amp; temp.yPos === tile.yPos + 1 &amp;&amp; temp.zPos === tile.zPos)</span>;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    return leftTile1 === undefined &amp;&amp; leftTile2 === undefined &amp;&amp; leftTile3 === undefined;</span>
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  tileMatch(</span>tile: Tile): boolean{
+<span class="cstat-no" title="statement not covered" >    if(this.selectedTile === undefined){</span>
+<span class="cstat-no" title="statement not covered" >      return false;</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if(this.selectedTile.tile.suit === tile.tile.suit &amp;&amp; this.selectedTile.tile.name === tile.tile.name){</span>
+&nbsp;
+      //this.tileService.matchTiles(this.selectedTile._id, tile._id).subscribe();
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      console.log("match!!");</span>
+<span class="cstat-no" title="statement not covered" >      this.matchTiles(this.selectedTile._id, tile._id).subscribe();</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      this.deleteTile(this.selectedTile);</span>
+<span class="cstat-no" title="statement not covered" >      this.deleteTile(tile);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      this.deleteTileFromList(tile);</span>
+<span class="cstat-no" title="statement not covered" >      this.deleteTileFromList(this.selectedTile);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        this.selectedTile = undefined;</span>
+<span class="cstat-no" title="statement not covered" >        return true;</span>
+&nbsp;
+    } else{
+<span class="cstat-no" title="statement not covered" >      console.log("No match");</span>
+<span class="cstat-no" title="statement not covered" >        return false;</span>
+    }
+&nbsp;
+  }
+<span class="fstat-no" title="function not covered" >    deleteTile(</span>tile) {
+<span class="cstat-no" title="statement not covered" >        document.getElementById(tile._id.toString()).remove();</span>
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    deleteTileFromList(</span>tile) {
+<span class="cstat-no" title="statement not covered" >      this.tiles = this.tiles.filter(<span class="fstat-no" title="function not covered" ></span>obj =&gt; <span class="cstat-no" title="statement not covered" >obj !== tile)</span>;</span>
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    matchTiles(</span>tileID1: number, tileID2: number): Observable&lt;Tile&gt;{
+    let headers = <span class="cstat-no" title="statement not covered" >new Headers({</span>
+        'Content-Type': 'application/json',
+        'x-username': this.authService.username,
+        'x-token': this.authService.token,
+    });
+&nbsp;
+    let options = <span class="cstat-no" title="statement not covered" >new RequestOptions({ headers: headers });</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    return this.http.post(`${this.apiUrl}/games/${this.gameID}/tiles/matches`,</span>
+        {
+            tile1Id: tileID1,
+            tile2Id: tileID2,
+        }, options)
+        .map(this.extractData);
+    }
+&nbsp;
+&nbsp;
+<span class="fstat-no" title="function not covered" >    private extractData(</span>res: Response) {
+<span class="cstat-no" title="statement not covered" >        console.log(res);</span>
+        let body = <span class="cstat-no" title="statement not covered" >res.json();</span>
+<span class="cstat-no" title="statement not covered" >        return body || {};</span>
+    }
+}</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sat Jun 17 2017 14:12:38 GMT+0200 (West-Europa (zomertijd))
+</div>
+</div>
+<script src="..\..\..\..\prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="..\..\..\..\sorter.js"></script>
+</body>
+</html>

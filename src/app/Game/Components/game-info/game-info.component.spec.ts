@@ -9,7 +9,11 @@ import {Subscription} from "rxjs/Subscription";
 
 import {Player} from "../../../Shared/Models/player";
 import {GameModule} from "../game.module";
+
 import {MajesticSharedModule} from "../../../Shared/Modules/majestic-shared.module";
+import {GameService} from "../../../Shared/Services/game.service";
+import {BusyModule} from "angular2-busy";
+
 
 describe('GameInfoComponent', () => {
   let component: GameInfoComponent;
@@ -18,12 +22,26 @@ describe('GameInfoComponent', () => {
     let el:      HTMLElement;
 
   beforeEach(async(() => {
-    TestBed.configureTestingModule({
-        imports:[GameModule, MajesticSharedModule],
+    var userServiceStub = {
+          isLoggedIn: true,
+          user: { name: 'Test User'}
+      };
 
-        declarations: [  ],
+    TestBed.configureTestingModule({
+        imports:[
+            MajesticSharedModule,
+            BusyModule,
+        ],
+
+        declarations: [
+
+            GameInfoComponent,
+
+
+        ],
+
         providers: [
-            { provide: ComponentFixtureAutoDetect, useValue: true }]
+            { provide: GameService, useValue: userServiceStub }]
     })
     .compileComponents();
   }));

@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/app/shared/Services/game.service.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="..\..\..\..\prettify.css" />
+    <link rel="stylesheet" href="..\..\..\..\base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(..\..\..\..\sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="..\..\..\..\index.html">All files</a> / <a href="index.html">src/app/shared/Services</a> game.service.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">44.19% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>19/43</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">60% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>6/10</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">9.09% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>1/11</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">42.5% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>17/40</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">import { Injectable } from '@angular/core';
+&nbsp;
+import { Game } from '../Models/game';
+//import { Games } from '../Mocks/mock-games';
+&nbsp;
+import { Http, Response } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/map';
+import { Headers, RequestOptions } from '@angular/http';
+import { AuthService } from '../Services/auth.service';
+import {Player} from "../Models/player";
+&nbsp;
+@Injectable()
+export class GameService {
+    private <span class="cstat-no" title="statement not covered" >apiUrl = "http://mahjongmayhem.herokuapp.com";</span>
+    username: string;
+    token: string;
+&nbsp;
+<span class="fstat-no" title="function not covered" >    constructor(private <span class="cstat-no" title="statement not covered" ></span>http: Http<span class="branch-1 cbranch-no" title="branch not covered" >,</span> private <span class="cstat-no" title="statement not covered" >authService: </span>AuthService<span class="branch-2 cbranch-no" title="branch not covered" >)</span> {    }</span>
+&nbsp;
+<span class="fstat-no" title="function not covered" >    getMyGames(): Observable&lt;Game[]&gt; {</span>
+<span class="cstat-no" title="statement not covered" >        return this.http.get(`${this.apiUrl}/games/`, { params: { pageSize: 10, player: this.authService.username } })</span>
+            .map(this.extractData);
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    getGames(</span>page?: number, player? :string, state?: string): Observable&lt;Game[]&gt; {
+<span class="cstat-no" title="statement not covered" >        return this.http.get(`${this.apiUrl}/games/`, { params: { pageSize: 10, pageIndex: page, state: state, player: player } })</span>
+            .map(this.extractData);
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    getWatchGames(): Observable&lt;Game[]&gt; {</span>
+<span class="cstat-no" title="statement not covered" >        return this.http.get(`${this.apiUrl}/games/`, { params: { pageSize: 10, state: "playing" } })</span>
+            .map(this.extractData);
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    createGame(</span>templateName: string, minPlayers: number, maxPlayers: number): Observable&lt;Game&gt; {
+        let headers = <span class="cstat-no" title="statement not covered" >new Headers({</span>
+            'Content-Type': 'application/json',
+            'x-username': this.authService.username,
+            'x-token': this.authService.token,
+        });
+&nbsp;
+        let options = <span class="cstat-no" title="statement not covered" >new RequestOptions({ headers: headers });</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        return this.http.post(`${this.apiUrl}/games`,</span>
+            {
+                templateName: templateName,
+                minPlayers: minPlayers,
+                maxPlayers: maxPlayers
+            }, options)
+            .map(this.extractData);
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    joinGame(</span>gameID: number){
+        let headers = <span class="cstat-no" title="statement not covered" >new Headers({</span>
+            'Content-Type': 'application/json',
+            'x-username': this.authService.username,
+            'x-token': this.authService.token,
+        });
+&nbsp;
+        let options = <span class="cstat-no" title="statement not covered" >new RequestOptions({ headers: headers });</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        return this.http.post(`${this.apiUrl}/games/${gameID}/players`,</span>
+            {}, options)
+            .map(this.extractData);
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    leaveGame(</span>gameID: number){
+        let headers = <span class="cstat-no" title="statement not covered" >new Headers({</span>
+            'Content-Type': 'application/json',
+            'x-username': this.authService.username,
+            'x-token': this.authService.token,
+        });
+&nbsp;
+        let options = <span class="cstat-no" title="statement not covered" >new RequestOptions({ headers: headers });</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        return this.http.delete(`${this.apiUrl}/games/${gameID}/players`,</span>
+             options)
+            .map(this.extractData);
+    }
+<span class="fstat-no" title="function not covered" >    getGamePlayerInfo(</span>gameID: number): Observable&lt;Player[]&gt;{
+        let headers = <span class="cstat-no" title="statement not covered" >new Headers({</span>
+            'Content-Type': 'application/json',
+            'x-username': this.authService.username,
+            'x-token': this.authService.token,
+        });
+&nbsp;
+        let options = <span class="cstat-no" title="statement not covered" >new RequestOptions({ headers: headers });</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        return this.http.get(`${this.apiUrl}/games/${gameID}/players`,</span>
+            options)
+            .map(this.extractData);
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    startGame(</span>gameID: number) {
+        let headers = <span class="cstat-no" title="statement not covered" >new Headers({</span>
+            'Content-Type': 'application/json',
+            'x-username': this.authService.username,
+            'x-token': this.authService.token,
+        });
+&nbsp;
+        let options = <span class="cstat-no" title="statement not covered" >new RequestOptions({ headers: headers });</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        return this.http.post(`${this.apiUrl}/games/${gameID}/start`,</span>
+            {}, options)
+            .map(this.extractData);
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    private extractData(</span>res: Response) {
+<span class="cstat-no" title="statement not covered" >        console.log(res);</span>
+        let body = <span class="cstat-no" title="statement not covered" >res.json();</span>
+<span class="cstat-no" title="statement not covered" >        return body || {};</span>
+    }
+}</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sat Jun 17 2017 14:12:38 GMT+0200 (West-Europa (zomertijd))
+</div>
+</div>
+<script src="..\..\..\..\prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="..\..\..\..\sorter.js"></script>
+</body>
+</html>
